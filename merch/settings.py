@@ -1,4 +1,4 @@
-#merch/merch/settings.py
+#merch/settings.py
 
 import os
 
@@ -54,7 +54,12 @@ ROOT_URLCONF = 'merch.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(MAIN, 'templates'),
+            os.path.join(PRODUCTS, 'templates'),
+            os.path.join(INVENTORY, 'templates'),
+            os.path.join(ORDERING, 'templates'),
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,32 +74,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'merch.wsgi.application'
 
-
 # Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'merch',
-        'USER': 'merch_main',
-        'PASSWORD': 'merch_main',
-        'HOST': 'cerebro.pw',
-        'PORT': '',
-    }
-}
-
-
-# {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+DATABASES = base.SQLITE3
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -111,13 +92,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Boise'
 
 USE_I18N = True
 
@@ -127,6 +104,16 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATICFILES_DIRS = [
+    os.path.join(MAIN, 'static/'),
+    os.path.join(PRODUCTS, 'static/'),
+    os.path.join(INVENTORY, 'static/'),
+    os.path.join(ORDERING, 'static/'),
+]
+
+#Uploaded media configuration
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
