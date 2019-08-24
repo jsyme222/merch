@@ -1,11 +1,15 @@
 from django.contrib import admin
 
-from .models import Merchant, Product
+from .models import Vender, Merchandise, VenderMerchandise
 
-@admin.register(Merchant)
-class MerchantAdmin(admin.ModelAdmin):
+@admin.register(Vender)
+class VenderAdmin(admin.ModelAdmin):
 	pass
 
-@admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+@admin.register(Merchandise)
+class MerchandiseAdmin(admin.ModelAdmin):
+	readonly_fields = ['resale']
+
+@admin.register(VenderMerchandise)
+class VenderMerchandise(admin.ModelAdmin):
 	pass

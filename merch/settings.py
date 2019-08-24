@@ -4,11 +4,10 @@ import os
 
 from . import base_settings as base
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PRODUCTS = os.path.join(BASE_DIR, 'products')
-INVENTORY = os.path.join(BASE_DIR, 'inventory')
-MAIN = os.path.join(BASE_DIR, 'main')
-ORDERING = os.path.join(BASE_DIR, 'ordering')
+PRODUCTS = os.path.join(base.BASE_DIR, 'products')
+INVENTORY = os.path.join(base.BASE_DIR, 'inventory')
+MAIN = os.path.join(base.BASE_DIR, 'main')
+ORDERING = os.path.join(base.BASE_DIR, 'ordering')
 
 
 SECRET_KEY = base.KEY
@@ -105,7 +104,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(base.BASE_DIR, 'static/')
 STATICFILES_DIRS = [
     os.path.join(MAIN, 'static/'),
     os.path.join(PRODUCTS, 'static/'),
@@ -116,4 +115,4 @@ STATICFILES_DIRS = [
 #Uploaded media configuration
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(base.BASE_DIR, 'media/')
