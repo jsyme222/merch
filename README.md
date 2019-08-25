@@ -1,2 +1,0 @@
-# merch
-Inventory management application
