@@ -1,3 +1,5 @@
+#merch/products/admin.py
+
 from django.contrib import admin
 
 from .models import Vender, Merchandise, VenderMerchandise
@@ -8,7 +10,7 @@ class VenderAdmin(admin.ModelAdmin):
 
 @admin.register(Merchandise)
 class MerchandiseAdmin(admin.ModelAdmin):
-	readonly_fields = ['resale']
+	readonly_fields = ['profit',]
 
 @admin.register(VenderMerchandise)
 class VenderMerchandise(admin.ModelAdmin):

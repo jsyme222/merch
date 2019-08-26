@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from django.db import models
 from django.conf import settings
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 
 """
 Individual product item information
@@ -39,6 +40,8 @@ class Merchandise(models.Model):
 	"""
 	class Meta:
 		verbose_name_plural = 'Merchandise'
+
+	seller = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
 
 	vender = models.ForeignKey(
 		Vender, 
@@ -138,8 +141,8 @@ class VenderMerchandise(Merchandise):
 				final_url = '/'.join(final[1:])
 				return final_url
 
-			except:
-				return 'Not Found'
+			except Exception:
+				return 'Error: {}'.format(Exception)
 
 		product_info['title'] = get_title()
 		product_info['image'] = get_image()

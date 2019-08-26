@@ -15,7 +15,7 @@ SECRET_KEY = base.KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '0.0.0.0']
 
 
 # Application definition
@@ -27,11 +27,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user.apps.UserConfig',
+    'main',
     'products',
     'inventory',
     'ordering',
     'debug_toolbar',
 ]
+
+AUTH_USER_MODEL = 'user.CustomUser'
 
 INTERNAL_IPS = [
     '127.0.0.1',
