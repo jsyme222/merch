@@ -1,0 +1,1360 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"verbos",
+				"verbose_name"
+			],
+			[
+				"get",
+				"get_product_info"
+			],
+			[
+				"product",
+				"product_info"
+			],
+			[
+				"produc",
+				"product_info"
+			],
+			[
+				"ver",
+				"verbose_name_plural"
+			],
+			[
+				"Mercha",
+				"Merchandise"
+			],
+			[
+				"MEDIA",
+				"MEDIA_URL"
+			],
+			[
+				"STAT",
+				"STATIC_ROOT"
+			],
+			[
+				"htt",
+				"HttpResponse"
+			],
+			[
+				"Create",
+				"CreateProfileForm"
+			],
+			[
+				"star",
+				"star_wars_data"
+			],
+			[
+				"pro",
+				"profile_image"
+			],
+			[
+				"MED",
+				"MEDIA_URL"
+			],
+			[
+				"wind",
+				"wind_speed"
+			],
+			[
+				"padd",
+				"padding-bottom\tproperty"
+			],
+			[
+				"backgr",
+				"background-color\tproperty"
+			],
+			[
+				"margin",
+				"margin-right\tproperty"
+			],
+			[
+				"models",
+				"models"
+			],
+			[
+				"urls",
+				"urls"
+			],
+			[
+				"BASE",
+				"BASE_DIR"
+			],
+			[
+				"SE",
+				"SECRET_KEY"
+			],
+			[
+				"contact",
+				"contact_form"
+			],
+			[
+				"verb",
+				"verbose_name"
+			],
+			[
+				"verbose_name",
+				"verbose_name_plural"
+			],
+			[
+				"verbose",
+				"verbose_name_plural"
+			],
+			[
+				"crea",
+				"created_on"
+			],
+			[
+				"to",
+				"todaysDate"
+			],
+			[
+				"date",
+				"datetime"
+			],
+			[
+				"str",
+				"strftime"
+			],
+			[
+				"model",
+				"models"
+			],
+			[
+				"Mode",
+				"ModelAdmin"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"true",
+				"True"
+			],
+			[
+				"P",
+				"PASSWORD"
+			],
+			[
+				"PR",
+				"PROJECT_PATH"
+			],
+			[
+				"bac",
+				"background-color\tproperty"
+			],
+			[
+				"background",
+				"background-size\tproperty"
+			],
+			[
+				"back",
+				"background-color\tproperty"
+			],
+			[
+				"a",
+				"auto\twidth"
+			],
+			[
+				"speedX",
+				"speedX"
+			],
+			[
+				"myG",
+				"myGamePiece"
+			],
+			[
+				"my",
+				"myGamePiece"
+			],
+			[
+				"myGa",
+				"myGameArea"
+			],
+			[
+				"myGame",
+				"myGamePiece"
+			],
+			[
+				"tex",
+				"text-decoration\tproperty"
+			],
+			[
+				"paddign",
+				"padding\tproperty"
+			],
+			[
+				"Food",
+				"FoodCategories"
+			],
+			[
+				"HORSE",
+				"Horse"
+			],
+			[
+				"creat",
+				"createCategory"
+			],
+			[
+				"ch",
+				"choices"
+			],
+			[
+				"max",
+				"max_length"
+			],
+			[
+				"co",
+				"content\tAttr"
+			],
+			[
+				"T",
+				"TweenMax"
+			],
+			[
+				"cb",
+				"cbdLabel"
+			],
+			[
+				"pre",
+				"preLabel"
+			],
+			[
+				"flowe",
+				"flowerLabel"
+			],
+			[
+				"cand",
+				"candyLabel"
+			],
+			[
+				"candy",
+				"candyTitle"
+			],
+			[
+				"m",
+				"morphSVG"
+			],
+			[
+				"b",
+				"block\tdisplay"
+			],
+			[
+				"font",
+				"font\tproperty"
+			],
+			[
+				"backg",
+				"background-color\tproperty"
+			],
+			[
+				"c",
+				"cover\tbackground-size"
+			],
+			[
+				"background-",
+				"background-size\tproperty"
+			],
+			[
+				"publish",
+				"published_date"
+			],
+			[
+				"fields",
+				"fieldsets"
+			],
+			[
+				"C",
+				"CASCADE"
+			],
+			[
+				"def",
+				"default"
+			],
+			[
+				"inline",
+				"inline-flex\tdisplay"
+			],
+			[
+				"text",
+				"text-align\tproperty"
+			],
+			[
+				"alin-",
+				"align-center"
+			],
+			[
+				"next",
+				"next_post"
+			],
+			[
+				"previous",
+				"previous_post"
+			],
+			[
+				"CH",
+				"CharField"
+			],
+			[
+				"mbr-f",
+				"mbr-fonts-style"
+			],
+			[
+				"DECOR",
+				"DECOR"
+			],
+			[
+				"ma",
+				"max_length"
+			],
+			[
+				"Ch",
+				"CharField"
+			],
+			[
+				"_PS",
+				"_POST"
+			],
+			[
+				"tr",
+				"transition\tproperty"
+			],
+			[
+				"trans",
+				"translate()\ttransform"
+			],
+			[
+				"over",
+				"overflow\tproperty"
+			],
+			[
+				"translate",
+				"translate3d()\ttransform"
+			],
+			[
+				"anima",
+				"animation\tproperty"
+			],
+			[
+				"overflo",
+				"overflow-x\tproperty"
+			],
+			[
+				"backgrou",
+				"background-position\tproperty"
+			],
+			[
+				"ba",
+				"background-position\tproperty"
+			],
+			[
+				"border-bott",
+				"border-bottom-right-radius\tproperty"
+			],
+			[
+				"min-",
+				"min-width\tproperty"
+			],
+			[
+				"bl",
+				"inline-block\tdisplay"
+			],
+			[
+				"e",
+				"currentColor\tbox-shadow"
+			],
+			[
+				"border-ri",
+				"border-bottom-right-radius\tproperty"
+			],
+			[
+				"conten",
+				"justify-content\tproperty"
+			],
+			[
+				"border-bo",
+				"border-bottom\tproperty"
+			],
+			[
+				"ease",
+				"ease-in-out"
+			],
+			[
+				"border-top",
+				"border-top-left-radius\tproperty"
+			],
+			[
+				"mysql_rea",
+				"mysqli_real_escape_string"
+			],
+			[
+				"mysql_re",
+				"mysql_real_escape_string"
+			],
+			[
+				"html",
+				"htmlspecialchars"
+			],
+			[
+				"p",
+				"p"
+			],
+			[
+				"curr",
+				"currentSite"
+			],
+			[
+				"border-bot",
+				"border-bottom-right-radius\tproperty"
+			],
+			[
+				"border-b",
+				"border-bottom-right-radius"
+			],
+			[
+				"border-lef",
+				"border-top-left-radius\tproperty"
+			],
+			[
+				"header",
+				"http_parse_headers"
+			],
+			[
+				"get_",
+				"get_headers"
+			],
+			[
+				"trns",
+				"transform\tproperty"
+			],
+			[
+				"tran",
+				"transform\tproperty"
+			],
+			[
+				"tra",
+				"transform\tproperty"
+			],
+			[
+				"min",
+				"min-height\tproperty"
+			],
+			[
+				"inl",
+				"inline-block\tdisplay"
+			],
+			[
+				"inlin",
+				"inline-flex\tdisplay"
+			],
+			[
+				"in",
+				"inline-flex\tdisplay"
+			],
+			[
+				"tar",
+				"target_file"
+			],
+			[
+				"file",
+				"file_size"
+			],
+			[
+				"upl",
+				"uploadOk"
+			],
+			[
+				"ul",
+				"uploadOk"
+			],
+			[
+				"target",
+				"target_dir"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "merch/settings.py",
+			"settings":
+			{
+				"buffer_size": 3022,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main/templates/base/base.html",
+			"settings":
+			{
+				"buffer_size": 166,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main/templates/base/base-site.html",
+			"settings":
+			{
+				"buffer_size": 11278,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "merch/urls.py",
+			"settings":
+			{
+				"buffer_size": 501,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "merch/base_settings.py",
+			"settings":
+			{
+				"buffer_size": 268,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "products/models.py",
+			"settings":
+			{
+				"buffer_size": 3505,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main/urls.py",
+			"settings":
+			{
+				"buffer_size": 243,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main/templates/main/inventory.html",
+			"settings":
+			{
+				"buffer_size": 1031,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main/views.py",
+			"settings":
+			{
+				"buffer_size": 566,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "products/admin.py",
+			"settings":
+			{
+				"buffer_size": 374,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "user/models.py",
+			"settings":
+			{
+				"buffer_size": 141,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "user/forms.py",
+			"settings":
+			{
+				"buffer_size": 425,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "user/admin.py",
+			"settings":
+			{
+				"buffer_size": 465,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 143.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/jsyme/projects/merch/anchor/merch",
+		"/home/jsyme/projects/merch/anchor/merch/inventory",
+		"/home/jsyme/projects/merch/anchor/merch/user",
+		"/home/jsyme/projects/merch/anchor/merch/webarch-admin",
+		"/home/jsyme/projects/merch/anchor/merch/webarch-admin/bundle",
+		"/home/jsyme/projects/merch/anchor/merch/webarch-admin/bundle/barebone"
+	],
+	"file_history":
+	[
+		"/home/jsyme/projects/merch/anchor/merch/inventory/admin.py",
+		"/home/jsyme/projects/merch/anchor/merch/inventory/models.py",
+		"/home/jsyme/projects/merch/anchor/merch/LICENSE",
+		"/home/jsyme/projects/weedology_1.0/weedology2_0/settings.py",
+		"/home/jsyme/projects/cerebro/user_profile/views.py",
+		"/home/jsyme/projects/cerebro/user_profile/urls.py",
+		"/home/jsyme/projects/cerebro/cerebro/urls.py",
+		"/home/jsyme/projects/cerebro/main/urls.py",
+		"/home/jsyme/projects/cerebro/main/views.py",
+		"/home/jsyme/projects/weedology/main/views.py",
+		"/home/jsyme/projects/cerebro/webarch-admin/bundle/demo/HTML/login.html",
+		"/home/jsyme/projects/weedology/main/templates/base/base-site.html",
+		"/home/jsyme/projects/weedology/main/forms.py",
+		"/home/jsyme/Downloads/mozilla/webarch-admin/bundle/demo/HTML/login.html",
+		"/home/jsyme/projects/cerebro/user_profile/models.py",
+		"/home/jsyme/projects/cerebro/main/templates/base/base-site.html",
+		"/home/jsyme/projects/cerebro/main/templates/base/base.html",
+		"/home/jsyme/projects/cerebro/main/static/base/js/dashboard_v2.js",
+		"/home/jsyme/projects/cerebro/main/static/base/js/widgets.js",
+		"/home/jsyme/projects/cerebro/main/templates/base/login.html",
+		"/home/jsyme/projects/cerebro/main/static/base/plugins/skycons/skycons.js",
+		"/home/jsyme/Downloads/mozilla/webarch-admin/bundle/demo/HTML/search_results.html",
+		"/home/jsyme/projects/cerebro/main/models.py",
+		"/home/jsyme/projects/cerebro/main/forms.py",
+		"/home/jsyme/Downloads/mozilla/webarch-admin/bundle/demo/HTML/grids_simple.html",
+		"/home/jsyme/projects/cerebro/user_profile/templates/profile/index.html",
+		"/home/jsyme/projects/cerebro/main/templates/main/star-wars.html",
+		"/home/jsyme/projects/cerebro/main/static/base/js/script.js",
+		"/home/jsyme/projects/cerebro/user_profile/tests.py",
+		"/home/jsyme/projects/cerebro/user_profile/admin.py",
+		"/home/jsyme/Downloads/mozilla/webarch-admin/bundle/demo/HTML/widgets.html",
+		"/home/jsyme/projects/weedology/main/admin.py",
+		"/home/jsyme/projects/weedology/main/models.py",
+		"/home/jsyme/projects/weedology/gallery/models.py",
+		"/home/jsyme/Downloads/mozilla/webarch-admin/bundle/demo/HTML/user-profile.html",
+		"/home/jsyme/projects/cerebro/main/static/base/plugins/jquery-ricksaw-chart/js/Rickshaw.js",
+		"/home/jsyme/projects/cerebro/main/static/base/plugins/jquery-ricksaw-chart/js/rickshaw.min.js",
+		"/home/jsyme/Downloads/mozilla/webarch-admin/bundle/demo/HTML/webarch/js/webarch.js",
+		"/home/jsyme/projects/cerebro/main/static/base/webarch/js/webarch.js",
+		"/home/jsyme/Downloads/mozilla/webarch-admin/bundle/barebone/index.html",
+		"/home/jsyme/projects/weedology/main/templates/base/base.html",
+		"/home/jsyme/projects/weedology/main/templates/careers.html",
+		"/home/jsyme/projects/weedology/main/templates/gallery.html",
+		"/home/jsyme/projects/weedology/main/templates/map.html",
+		"/home/jsyme/projects/weedology/THEME/code/dark-clean/_starter_landing.html",
+		"/home/jsyme/projects/weedology/gallery/views.py",
+		"/home/jsyme/projects/weedology/main/static/js/script.js",
+		"/home/jsyme/projects/weedology/main/static/js/custom.js",
+		"/home/jsyme/Downloads/mozilla/themeforest-5gEJcQ4K-sidebars-3d-mobile-tablet-responsive-template/code/dark-clean/index.html",
+		"/home/jsyme/projects/weedology/main/templates/index.html.1.0",
+		"/home/jsyme/projects/weedology/main/templates/base/base.html.1.0",
+		"/home/jsyme/projects/weedology/main/templates/verify.html",
+		"/home/jsyme/projects/weedology/main/templates/index.html...",
+		"/home/jsyme/Downloads/mozilla/themeforest-5gEJcQ4K-sidebars-3d-mobile-tablet-responsive-template/code/dark-clean/index-login.html",
+		"/home/jsyme/projects/weedology/main/templates/verify.html.1.0",
+		"/home/jsyme/projects/weedology/main/templates/base/base-site.html.1.0",
+		"/home/jsyme/projects/weedology/main/templates/index.html.template",
+		"/home/jsyme/Downloads/mozilla/themeforest-5gEJcQ4K-sidebars-3d-mobile-tablet-responsive-template/code/dark-clean/gallery-square.html",
+		"/home/jsyme/projects/weedology/main/static/js/plugins.js",
+		"/home/jsyme/projects/weedology/main/templates/gallery.html.1.0",
+		"/home/jsyme/Downloads/mozilla/themeforest-5gEJcQ4K-sidebars-3d-mobile-tablet-responsive-template/code/dark-clean/page-map.html",
+		"/home/jsyme/.config/sublime-text-3/Packages/HTMLBeautify/HTMLBeautify.sublime-settings",
+		"/home/jsyme/projects/weedology1_9_9/weedology/templates/index.html",
+		"/home/jsyme/projects/weedology/main/static/css/font-awesome.css",
+		"/home/jsyme/Downloads/mozilla/themeforest-5gEJcQ4K-sidebars-3d-mobile-tablet-responsive-template/code/dark-clean/index-cover.html",
+		"/home/jsyme/Downloads/mozilla/themeforest-5gEJcQ4K-sidebars-3d-mobile-tablet-responsive-template/code/dark-clean/menu-right.html",
+		"/home/jsyme/Downloads/html5up-editorial/elements.html",
+		"/home/jsyme/Downloads/html5up-editorial/assets/css/main.css",
+		"/home/jsyme/Downloads/html5up-editorial/index.html",
+		"/home/jsyme/projects/bns_app/main/admin.py",
+		"/home/jsyme/projects/bns_app/rv_life/urls.py",
+		"/home/jsyme/projects/bns_app/homeschool/urls.py",
+		"/home/jsyme/projects/bns_app/gallery/urls.py",
+		"/home/jsyme/projects/bns_app/bns_app/config/settings/base.py",
+		"/home/jsyme/projects/bns_app/bns_app/config/settings/development.py",
+		"/home/jsyme/projects/bns_app/bns_app/config/settings/production.py",
+		"/home/jsyme/projects/bns_app/bns_app/config/settings/staging.py",
+		"/home/jsyme/projects/weedology/weedology2_0/settings.py",
+		"/home/jsyme/projects/weedology/weedology2_0/basesettings.py",
+		"/home/jsyme/projects/weedology2_0/gallery/models.py",
+		"/home/jsyme/projects/weedology2_0/gallery/views.py",
+		"/home/jsyme/projects/weedology2_0/main/views.py",
+		"/home/jsyme/projects/weedology2_0/main/templates/gallery.html",
+		"/home/jsyme/projects/weedology/main/urls.py",
+		"/home/jsyme/projects/weedology2_0/main/models.py",
+		"/home/jsyme/projects/weedology2_0/calendar_app/models.py",
+		"/home/jsyme/projects/weedology2_0/main/templates/verify.html",
+		"/home/jsyme/projects/weedology2_0/main/templates/base/base-site.html",
+		"/home/jsyme/projects/weedology2_0/main/admin.py",
+		"/home/jsyme/projects/weedology2_0/weedology2_0/urls.py",
+		"/home/jsyme/projects/weedology2_0/calandar/admin.py",
+		"/home/jsyme/projects/weedology2_0/gallery/admin.py",
+		"/home/jsyme/projects/weedology2_0/gallery/urls.py",
+		"/home/jsyme/projects/weedology/weedology/settings.py",
+		"/home/jsyme/projects/weedology/weedology/static/js/sw-resources.json",
+		"/home/jsyme/projects/weedology/weedology/static/js/sw.js",
+		"/home/jsyme/projects/weedology/weedology/static/js/manifest.json",
+		"/home/jsyme/projects/weedology/weedology/templates/rejected.html",
+		"/home/jsyme/projects/weedology/main/tests.py",
+		"/home/jsyme/weedology/weedology/templates/base.html",
+		"/home/jsyme/weedology/weedology/templates/base-site.html",
+		"/home/jsyme/weedology/weedology/templates/index.html",
+		"/home/jsyme/bryn_app/main/templates/index.html",
+		"/home/jsyme/bryn_app/README.md",
+		"/home/jsyme/bryn_app/requirements.txt",
+		"/home/jsyme/weedology/weedology/settings.py",
+		"/home/jsyme/weedology/weedology/templates/base-site.html.prod",
+		"/home/jsyme/weedology/weedology/templates/manifest.json",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/weedology/urls.py",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/weedology/templates/sw.js",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/main/urls.py",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/main/tests.py",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/main/views.py",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/main/apps.py",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/main/admin.py",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/main/models.py",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/weedology/settings.py",
+		"/media/jsyme/MEDIA/servers.xml",
+		"/media/jsyme/MEDIA/hosted/weedology/htdocs/2.5/sw.js",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/weedology/templates/sw-resources.json",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/db.sqlite3",
+		"/media/jsyme/MEDIA/hosted/weedology/htdocs/2.0.1/index.html",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/weedology/templates/base.html",
+		"/media/jsyme/MEDIA/hosted/weedology/htdocs/2.0.1/gallery.html",
+		"/media/jsyme/MEDIA/hosted/weedology/django_weedology/weedology/templates/verify__.html",
+		"/media/jsyme/MEDIA/hosted/weedology/htdocs/2.0.1/page5.html",
+		"/media/jsyme/MEDIA/hosted/weedology/htdocs/2.0.1/page1.html",
+		"/media/jsyme/MEDIA/hosted/weedology/htdocs/2.0.1/page2.html"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 107.0,
+		"where_history":
+		[
+			"base-site.html",
+			"settings.py",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"static 'base/img",
+			".js\"",
+			"\"assets/",
+			"\"{% static 'img",
+			".png\"",
+			".jpg\"",
+			"\"assets/img",
+			"' %}",
+			"{% static",
+			"{%",
+			".css\"",
+			"\"assets",
+			"BASE_DIR"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"static 'main/img",
+			".js' %}\"",
+			"\"{% static 'base/",
+			"\"{% static 'base/img",
+			".png' %}\"",
+			".jpg' %}\"",
+			"\"{% static 'img",
+			"' %}\"",
+			"\"{% static",
+			"\"{%",
+			".css' %}",
+			"{% static 'main/",
+			"base.BASE_DIR"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "merch/settings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3022,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								656,
+								656
+							]
+						],
+						"settings":
+						{
+							"SL.60.region_keys":
+							[
+							],
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 155.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "main/templates/base/base.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 166,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								140,
+								140
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "main/templates/base/base-site.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11278,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5447,
+								5447
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2601.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "merch/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 501,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								185,
+								185
+							]
+						],
+						"settings":
+						{
+							"SL.63.region_keys":
+							[
+							],
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "merch/base_settings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 268,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								150,
+								150
+							]
+						],
+						"settings":
+						{
+							"SL.61.region_keys":
+							[
+							],
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "products/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3505,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1109,
+								1109
+							]
+						],
+						"settings":
+						{
+							"SL.67.region_keys":
+							[
+							],
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 108.0,
+						"translation.y": 471.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "main/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 243,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								238,
+								238
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "main/templates/main/inventory.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1031,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								849,
+								849
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "main/views.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 566,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								550,
+								550
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "products/admin.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 374,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								288,
+								288
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 10,
+					"file": "user/models.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 141,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								141,
+								141
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "user/forms.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 425,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								425,
+								425
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "user/admin.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 465,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21,
+								21
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.33,
+			0.61765129431,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.autopep8":
+	{
+		"height": 120.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 165.0
+	},
+	"pinned_build_system": "",
+	"project": "anchor.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\jsyme\\getthrifty\\blog\\admin.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 2,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 178.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
