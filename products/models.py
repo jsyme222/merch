@@ -51,12 +51,10 @@ class Merchandise(models.Model):
 
 	SKU = models.CharField(
 		max_length=100, 
-		unique=True,
 	)
 
 	title = models.CharField(
 		max_length=250, 
-		unique=True, 
 		null=True, 
 		blank=True,
 		default='',
@@ -88,6 +86,12 @@ class Merchandise(models.Model):
 		null=True, 
 		default='',
 	)
+
+	QTY = models.IntegerField(
+		blank=True, 
+		default=0,
+		null=True,
+		)
 
 	def __str__(self):
 		if not self.title:
@@ -149,11 +153,26 @@ class VenderMerchandise(Merchandise):
 
 		return product_info
 
+	def check_SKU(self):
+		product = Merchandise.objects.get(SKU=self.SKU)
+		if product:
+			return True
+		return False
+
 	def save(self, *args, **kwargs):
-		info = self.get_product_info()
-		self.resale = self.wholesale * 2
 		if self.online_info:
-			self.img = info['image']
-			self.title = info['title']
-		self.online_info = False
+			if not self.check_SKU():
+				info = self.get_product_info()
+				self.resale = self.wholesale * 2
+				if self.online_info:
+					self.img = info['image']
+					self.title = info['title']
+			else:
+				product = Merchandise.objects.get(SKU=self.SKU)
+				self.title = product.title
+				self.wholesale = product.wholesale
+				self.resale = product.resale
+				self.profit = product.profit
+				self.img = product.img
+			self.online_info = False
 		super(Merchandise, self).save(*args, **kwargs)

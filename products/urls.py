@@ -3,8 +3,8 @@ from django.conf import settings
 from django.urls import path, include
 
 from . import views
-from .views import MainIndex
+from .views import VenderMerchandiseCreate
 
 urlpatterns = [
-	path('', MainIndex.as_view(), name='main.index'),
+	path('add/', VenderMerchandiseCreate.as_view(), name='products.add'),
 ]

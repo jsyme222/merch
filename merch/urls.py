@@ -5,10 +5,15 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 import main.urls
+import inventory.urls
+import products.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('inventory/', include('inventory.urls')),
+    path('products/', include('products.urls')),
 ]
 
 if settings.DEBUG:
