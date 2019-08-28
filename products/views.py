@@ -5,4 +5,4 @@ from .models import Merchandise, VenderMerchandise
 
 class VenderMerchandiseCreate(CreateView):
 	model = VenderMerchandise
-	fields = ['SKU']
+	fields = ['vender', 'SKU', 'wholesale', 'QTY',]

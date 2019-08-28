@@ -154,25 +154,26 @@ class VenderMerchandise(Merchandise):
 		return product_info
 
 	def check_SKU(self):
-		product = Merchandise.objects.get(SKU=self.SKU)
-		if product:
+		try:
+			product = Merchandise.objects.get(SKU=self.SKU)
 			return True
-		return False
+		except:
+			return False
 
 	def save(self, *args, **kwargs):
 		if self.online_info:
-			if not self.check_SKU():
-				info = self.get_product_info()
-				self.resale = self.wholesale * 2
-				if self.online_info:
-					self.img = info['image']
-					self.title = info['title']
-			else:
+			if self.check_SKU():
 				product = Merchandise.objects.get(SKU=self.SKU)
 				self.title = product.title
 				self.wholesale = product.wholesale
 				self.resale = product.resale
 				self.profit = product.profit
 				self.img = product.img
+			else:
+				info = self.get_product_info()
+				self.resale = self.wholesale * 2
+				if self.online_info:
+					self.img = info['image']
+					self.title = info['title']
 			self.online_info = False
 		super(Merchandise, self).save(*args, **kwargs)
