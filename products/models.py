@@ -93,12 +93,26 @@ class Merchandise(models.Model):
 		null=True,
 	)
 
+	on_floor = models.IntegerField(
+		blank=True,
+		null=True,
+		default=0,
+	)
+
 	created_on = models.DateTimeField(auto_now_add=True)
+
+	def image_tag(self):
+		return mark_safe('<img src="/media/%s" width="200" height="150" />' % (self.image))
+
+	image_tag.short_description = 'Image'
 
 	def __str__(self):
 		if not self.title:
 			return str(self.SKU)
 		return self.title + ' => ' + self.seller.username
+
+	def get_absolute_url(self):
+		return "/products/%i/" % self.pk
 
 
 

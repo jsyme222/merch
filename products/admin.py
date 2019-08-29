@@ -10,7 +10,7 @@ class VenderAdmin(admin.ModelAdmin):
 
 @admin.register(Merchandise)
 class MerchandiseAdmin(admin.ModelAdmin):
-	readonly_fields = ['profit',]
+	readonly_fields = ['profit', 'image_tag',]
 
 @admin.register(VenderMerchandise)
 class VenderMerchandise(admin.ModelAdmin):

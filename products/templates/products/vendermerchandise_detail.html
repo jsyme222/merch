@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-md-4 col-sm-3">
                       <p class="semi-bold">Floor</p>
-                      <h4><span class="semi-bold">{{ object.on_floor }}0</span></h4>
+                      <h4><span class="semi-bold">{{ object.on_floor }}</span></h4>
                     </div>
                   </div>
                 </div>
@@ -87,7 +87,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <div id="sales-graph"> </div>
+                <button class="btn btn-primary"><a href="{% url 'products.update' object.pk %}">Edit Product</a></button>
               </div>
             </div>
           <!-- END PLACE PAGE CONTENT HERE -->

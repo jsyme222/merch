@@ -10174,8 +10174,18 @@ body.rtl .footer-widget {
 .product-row a{
   color: orange;
 }
+.inventory-selectors{
+  display: inline-flex;
+}
+.inventory-selectors .btn{
+  width: auto;
+  margin: 0.25rem;
+}
 @media(max-width: 767px){
   .product-img{
     max-width: 100px;
+  }
+  .hide-sm{
+    display: none;
   }
 }

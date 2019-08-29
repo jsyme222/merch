@@ -37,6 +37,10 @@ class AddVenderMerchandiseForm(forms.Form):
 		required=False,
 	)
 
+	on_floor = forms.IntegerField(
+		required=False,
+	)
+
 	online_info = forms.BooleanField(
 		help_text='*If selected the information for the product will be \
 		gathered from the merchants website if available',
