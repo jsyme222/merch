@@ -1,17 +1,40 @@
 {% extends 'base/base.html' %}
 {% block content %}
-      <!-- BEGIN PAGE CONTAINER-->
-      <div class="page-content">
-        <div class="content">
-          <!-- BEGIN PlACE PAGE CONTENT HERE -->
-        <h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>
-          <!-- END PLACE PAGE CONTENT HERE -->
+    <div class="container">
+      <div class="row login-container column-seperation">
+        <div class="col-md-5 col-md-offset-1">
+          <h2>
+        Sign in to Second Seller
+      </h2>
+          <p>
+            <br>
+            <a href="#">Sign up Now!</a> for a Second Seller account.
+          </p>
+          <br>
+        </div>
+        <div class="col-md-5">
+          <br>
+          <form class="login-form validate" id="login-form" method="post" name="login-form">
+
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <div class="row">
+              <div class="control-group col-md-10">
+                <div class="checkbox checkbox check-success">
+                  <a href="#">Trouble login in?</a>&nbsp;&nbsp;
+                  <input id="checkbox1" type="checkbox" value="1">
+                  <label for="checkbox1">Keep me logged in</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10">
+                <button class="btn btn-primary btn-cons pull-right" type="submit">Login</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-      <!-- END PAGE CONTAINER -->
+    </div>
 {% endblock %}

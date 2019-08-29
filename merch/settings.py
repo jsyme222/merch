@@ -40,6 +40,8 @@ AUTH_USER_MODEL = 'user.CustomUser'
 LOGIN_REDIRECT_URL = 'main.index'
 LOGOUT_REDIRECT_URL = '/accounts/login'
 
+LOGIN_EXEMPT_URLS = ()
+
 INTERNAL_IPS = [
     '127.0.0.1',
 ]

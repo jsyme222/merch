@@ -27,8 +27,8 @@
             </li>
           </ul>
           <!-- BEGIN LOGO -->
-          <a href="index.html">
-            <img src="{% static 'main/assets/img/logo.png' %}" class="logo" alt="" data-src="{% static 'main/assets/img/logo.png' %}" data-src-retina="{% static 'main/assets/img/logo2x.png' %}" width="106" height="21" />
+          <a href="{% url 'main.index' %}">
+            <img src="{% static 'main/assets/img/secondseller-white.svg' %}" class="logo" alt="" data-src="{% static 'main/assets/img/secondseller-white.svg' %}" data-src-retina="{% static 'main/assets/img/secondseller-white.svg' %}" width="150" height="40" />
           </a>
           <!-- END LOGO -->
           <ul class="nav pull-right notifcation-center">
@@ -142,7 +142,7 @@
         <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
           <div class="user-info-wrapper sm">
             <div class="user-info sm">
-              <div class="username">{{ user }} <span class="semi-bold"></span></div>
+              <div class="username">{{ user|capfirst }} </div><span class="semi-bold">{% now "jS F" %}</span>
             </div>
           </div>
           <!-- END MINI-PROFILE -->
@@ -153,84 +153,41 @@
             </li>
 
             <li>
-              <a href="javascript:;"> <i class="fa fa-sort-amount-desc"></i> <span class="title">Inventory</span> <span class=" arrow"></span> </a>
+              <a href="javascript:;"> <i class="fa fa-sort-amount-desc"></i> <span class="title">{{ user|capfirst }}'s Inventory</span> <span class=" arrow"></span> </a>
               <ul class="sub-menu">
                 <li> 
-                	<a href="{% url 'inventory.index' %}">All Inventory</a> 
+                	<a href="{% url 'inventory.index' %}"><i class="fa fa-sort-alpha-desc"></i>All Inventory</a> 
                 </li>
                 <li> 
-                	<a href="{% url 'products.add' %}">Add Products</a></li>
+                	<a href="{% url 'products.add' %}"><i class="fa fa-plus-circle"></i> Add Products</a></li>
               </ul>
             </li>
             <li>
-              <a href="email.html"> <i class="material-icons">email</i> <span class="title">Email</span> <span class=" badge badge-disable pull-right ">203</span>
-              </a>
-            </li>
-            <li>
-              <a href="charts.html"> <i class="material-icons">timeline</i> <span class="title">Charts</span> </a>
-            </li>
-            <li class="hidden-lg hidden-md hidden-xs" id="more-widgets">
-              <a href="javascript:;"> <i class="material-icons"></i></a>
+              <a href="javascript:;"> <i class="fa fa-tag"></i> <span class="title">On The Floor</span> <span class=" arrow"></span></a>
               <ul class="sub-menu">
-                <li class="side-bar-widgets">
-                  <p class="menu-title sm">FOLDER <span class="pull-right"><a href="#" class="create-folder"><i class="material-icons">add</i></a></span></p>
-                  <ul class="folders">
-                    <li>
-                      <a href="#">
-                        <div class="status-icon green"></div>
-                        My quick tasks </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="status-icon red"></div>
-                        To do list </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <div class="status-icon blue"></div>
-                        Projects </a>
-                    </li>
-                    <li class="folder-input" style="display:none">
-                      <input type="text" placeholder="Name of folder" class="no-boarder folder-name" name="" id="folder-name">
-                    </li>
-                  </ul>
-                  <p class="menu-title">PROJECTS </p>
-                  <div class="status-widget">
-                    <div class="status-widget-wrapper">
-                      <div class="title">Freelancer<a href="#" class="remove-widget"><i class="material-icons">close</i></a></div>
-                      <p>Redesign home page</p>
-                    </div>
-                  </div>
-                  <div class="status-widget">
-                    <div class="status-widget-wrapper">
-                      <div class="title">envato<a href="#" class="remove-widget"><i class="material-icons">close</i></a></div>
-                      <p>Statistical report</p>
-                    </div>
-                  </div>
+                <li> 
+                  <a href="{% url 'inventory.index' %}"><i class="fa fa-sort-alpha-desc"></i>Everything On Floor</a> 
                 </li>
+                <li> 
+                  <a href="{% url 'products.add' %}"><i class="fa fa-plus-circle"></i> Add Products</a></li>
               </ul>
             </li>
           </ul>
           <div class="side-bar-widgets">
-            <p class="menu-title sm">FOLDER <span class="pull-right"><a href="#" class="create-folder"> <i class="material-icons">add</i></a></span></p>
+            <p class="menu-title sm">Account <span class="pull-right"></a></span></p>
             <ul class="folders">
               <li>
                 <a href="#">
-                  <div class="status-icon green"></div>
-                  My quick tasks </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="status-icon red"></div>
-                  To do list </a>
-              </li>
-              <li>
-                <a href="#">
-                  <div class="status-icon blue"></div>
-                  Projects </a>
+                  <span class="fa fa-cogs"></span>
+                  Settings</a>
               </li>
               <li class="folder-input" style="display:none">
                 <input type="text" placeholder="Name of folder" class="no-boarder folder-name" name="">
+              </li>
+              <li>
+                <a href="/accounts/logout/">
+                  <span class="fa fa-level-down"></span>
+                  Logout </a>
               </li>
             </ul>
             <p class="menu-title">PROJECTS </p>

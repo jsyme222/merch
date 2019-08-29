@@ -10,28 +10,46 @@
           <!-- END PAGE TITLE -->
           <!-- BEGIN PlACE PAGE CONTENT HERE -->
           {% for product in products %}
-          <div>
-            <div>
-              Item: <b>{{ product.title }}</b>
+
+        <div class="row product-row">
+          <div class="col-md-10 col-vlg-10 m-b-10 ">
+              <div class="tiles {% cycle 'white' 'green' %}">
+                  <div class="sales-graph-heading">
+                    <div class="col-md-3 col-sm-3">
+                      <h5 class="no-margin">Product</h5>
+                      <h4><span class="semi-bold"><a href="{% url 'products.detail' product.pk %}">{{ product.title }}</a></span></h4>
+                    </div>
+                    <div class="col-md-1 col-sm-3">
+                      <p class="semi-bold">Inventory</p>
+                      <h4><span class="semi-bold">{{ product.QTY }}</span></h4>
+                    </div>
+                    <div class="col-md-1 col-sm-3">
+                      <p class="semi-bold">Floor</p>
+                      <h4><span class="semi-bold">{{ product.on_floor }}0</span></h4>
+                    </div>
+                    <div class="col-md-1 col-sm-3">
+                      <p class="semi-bold">SKU</p>
+                      <h4><span class="semi-bold">{{ product.SKU }}</span></h4>
+                    </div>
+                  </div>
+                    {% if product.img %}
+                    <div class="col-md-1 col-sm-3">
+                      <img src="{{ product.img.url }}" class="product-img" alt="{{ product.title }}" />
+                    </div>
+                    {% endif %}
+                    <div class="clearfix"></div>
+                </div>
+              </div>
             </div>
-            <div>
-              QTY: <b>{{ product.QTY }}</b>
+          {% empty %}
+          <div class="row product-row">
+          <div class="col-md-10 col-vlg-10 m-b-10 ">
+              <div class="tiles {% cycle 'white' 'green' %}">
+                  <h3>You don't have any inventory yet. Begin entering products to build your inventory.
+                  </h3>
+                </div>
+              </div>
             </div>
-            <div>
-              SKU: <b>{{ product.SKU }}</b>
-            </div>
-            <div>
-              Vender: <b>{{ product.vender }}</b>
-            </div>
-            <div>
-              Wholesale: <b>${{ product.wholesale }}</b>
-            </div>
-            <div>
-              Suggested Retail: <b>${{ product.resale }}</b>
-            </div>
-            <img src="{{ product.img.url }}" alt="{{ product.title }}" />
-            <br>
-          </div>
           {% endfor %}
           <!-- END PLACE PAGE CONTENT HERE -->
         </div>

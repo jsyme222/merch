@@ -10167,3 +10167,15 @@ body.rtl .footer-widget {
     -webkit-backface-visibility: hidden;
   }
 }
+.product-img{
+  max-width: 200px;
+  height: auto;
+}
+.product-row a{
+  color: orange;
+}
+@media(max-width: 767px){
+  .product-img{
+    max-width: 100px;
+  }
+}

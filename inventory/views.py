@@ -10,6 +10,8 @@ class InventoryListView(ListView):
 	View of inventory for 
 	logged in user
 	"""
+	paginate_by = 25
+	
 	def get(self, request):
 		context = {}
 		model = Merchandise.objects.filter(seller=request.user)

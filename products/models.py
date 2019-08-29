@@ -91,12 +91,14 @@ class Merchandise(models.Model):
 		blank=True, 
 		default=0,
 		null=True,
-		)
+	)
+
+	created_on = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
 		if not self.title:
 			return str(self.SKU)
-		return self.title
+		return self.title + ' => ' + self.seller.username
 
 
 

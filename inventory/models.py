@@ -21,14 +21,16 @@ class SellerInventory(models.Model):
 		on_delete=models.SET_NULL
 		)
 
+	inventory_title = models.CharField(max_length=250, blank=False, null=True, default='Default')
+
 	products = models.ManyToManyField(Merchandise)
 	
 	created_on = models.DateTimeField(auto_now_add=True)
-
-	last_login = models.DateTimeField(auto_now=True)
 
 	def __str__(self):
 		return str(self.seller)
 
 	# def save(self, *args, **kwargs):
 	# 	super(UserInventory, self).save(*args, **kwargs)
+
+	
