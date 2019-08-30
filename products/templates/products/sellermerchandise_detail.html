@@ -24,18 +24,11 @@ product_page
                   <div class="sales-graph-heading">
                     <div class="col-md-3 col-sm-2">
                       <p class="semi-bold">Inventory</p>
-                      <input id="qty" type="number" value="{{ object.QTY }}" style="width:50px;" min="{{ object.on_floor }}" onchange="update_qty_val(this.value)"></input>
-                      <br>
-                      <button id="update-inventory" class="btn btn-xs btn-mini btn-primary" type="button" value="{{ object.pk }}">UPDATE</button>
+                      <h4><span class="semi-bold bordered">{{ object.QTY }}</span></h4>
                     </div>
-                    <br>
                     <div class="col-md-3 col-sm-2">
                       <p class="semi-bold">Selling</p>
-                      <input type="number" value="{{ object.on_floor }}" style="width:50px;" min="{{ object.on_floor }}"></input>
-                      {% if object.on_floor >= 1 %}
-                      <br>
-                      <button class="btn btn-xs btn-mini btn-danger" type="button">RECORD SALE</button>
-                      {% endif %}
+                      <h4><span class="semi-bold bordered">{{ object.on_floor }}</span></h4>
                     </div>
                   </div>
                 </div>
@@ -104,7 +97,7 @@ product_page
                 <div class="container">
                 <button class="btn btn-primary"><a href="{% url 'products.update' object.pk %}">Edit Product</a></button>
               </div>
-
+              
                 </div>
               </div>
             </div>

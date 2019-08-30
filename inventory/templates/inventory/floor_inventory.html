@@ -41,11 +41,37 @@
                     <tbody>
                       {% for product in products %}
                       <tr>
-                        <td class="v-align-middle"><a href="/products/{{ product.pk }}">{{ product.title }}</a></td>
-                        <td class="v-align-middle"><span class="muted">{{ product.SKU }}</span></td>
-                        <td><span class="muted bold text-success hide-sm">${{ product.wholesale }}</span></td>
-                        <td><span class="muted">{{ product.QTY }}</span></td>
-                        <td><span class="muted hide-sm">{{ product.on_floor }}</span></td>
+                        <td class="v-align-middle">
+                          <a href="
+                          {% if product.class_name == 'vender' %}
+                            {% url 'vender_product.detail' product.pk %}
+                          {% else %}
+                            {% url 'seller_product.detail' product.pk %}
+                          {% endif %}">
+                            {{ product.title }}
+                          </a>
+                        </td>
+
+                        <td class="v-align-middle">
+                          <span class="muted">
+                          {{ product.SKU }}
+                          </span>
+                        </td>
+
+                        <td>
+                          <span class="muted bold text-success hide-sm">
+                            ${{ product.wholesale }}
+                          </span>
+                        </td>
+
+                        <td>
+                          <span class="muted">{{ product.QTY }}</span>
+                        </td>
+                        
+                        <td>
+                          <span class="muted hide-sm">{{ product.on_floor }}</span>
+                        </td>
+                        
                       </tr>
                       {% endfor %}
                     </tbody>

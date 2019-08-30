@@ -11,7 +11,7 @@ class AddVenderMerchandiseForm(forms.Form):
 	"""
 	vender = forms.ModelChoiceField(
 		queryset=Vender.objects.all(),
-		help_text='<br><a href="#">Add Vender</a>',
+		help_text='<br><a href="#">Add Vender</a><br>',
 		)
 
 	SKU = forms.CharField(

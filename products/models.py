@@ -35,6 +35,17 @@ class Vender(models.Model):
 	def __str__(self):
 		return self.vender
 
+class Expense(models.Model):
+	"""
+	Individual expense 
+	model
+	"""
+	expense_title = models.CharField(max_length=250, blank=False)
+	unit_price = models.DecimalField(
+		max_digits=6, 
+		decimal_places=2, 
+	)
+
 class Merchandise(models.Model):
 	"""
 	Parent product item class
@@ -44,10 +55,12 @@ class Merchandise(models.Model):
 
 	seller = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
 
-	vender = models.ForeignKey(
-		Vender, 
-		null=True,
-		on_delete=models.SET_NULL,
+
+	class_name = models.CharField(
+		max_length=250, 
+		null=True, 
+		blank=True,
+		default='',
 	)
 
 	SKU = models.CharField(
@@ -116,7 +129,19 @@ class Merchandise(models.Model):
 	def get_absolute_url(self):
 		return "/products/%i/" % self.pk
 
+class SellerMerchandise(Merchandise):
+	"""
+	Products prepared or
+	created by the seller
+	"""
+	class Meta:
+		verbose_name_plural = 'Seller Merchandise'
 
+	expenses = models.ManyToManyField(Expense, blank=True,)
+
+	def save(self, *args, **kwargs):
+		self.class_name = 'seller'
+		super(Merchandise, self).save(*args, **kwargs)
 
 class VenderMerchandise(Merchandise):
 	"""
@@ -124,6 +149,12 @@ class VenderMerchandise(Merchandise):
 	"""
 	class Meta:
 		verbose_name_plural = 'Vender Merchandise'
+
+	vender = models.ForeignKey(
+		Vender, 
+		null=True,
+		on_delete=models.SET_NULL,
+	)
 
 	online_info = models.BooleanField(
 		verbose_name='Get info from website?*',
@@ -194,4 +225,5 @@ class VenderMerchandise(Merchandise):
 					self.img = info['image']
 					self.title = info['title']
 			self.online_info = False
+		self.class_name = 'vender'
 		super(Merchandise, self).save(*args, **kwargs)

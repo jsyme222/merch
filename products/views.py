@@ -9,8 +9,9 @@ from django.views.generic.edit import UpdateView
 from django.views.generic.edit import FormView
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 
-from .models import Vender, Merchandise, VenderMerchandise
+from .models import Vender, Merchandise, VenderMerchandise, SellerMerchandise
 
 from .forms import AddVenderMerchandiseForm
 
@@ -51,7 +52,7 @@ def vender_merchandise_add(request):
 				online_info=online_info,
 				)
 
-			return redirect('main.index')
+			return redirect('/products/vender/{}'.format(product.pk))
 		else:
 			print('Not valid')
 
@@ -60,7 +61,6 @@ def vender_merchandise_add(request):
 
 	context = {
 		'form' : form,
-		'venders' : Vender.objects.all(),
 	}
 	return render(request, 'products/vendermerchandise_form.html', context)
 
@@ -76,6 +76,18 @@ class VenderMerchandiseDetail(DetailView):
 		context['now'] = timezone.now()
 		return context
 
+class SellerMerchandiseDetail(DetailView):
+	"""
+	View of indiviual
+	seller product details
+	"""
+	model = SellerMerchandise
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['now'] = timezone.now()
+		return context
+
 class VenderMerchandiseUpdate(UpdateView):
 	"""
 	Update VenderMerchandise objects
@@ -85,3 +97,13 @@ class VenderMerchandiseUpdate(UpdateView):
 	def get_queryset(self):
 		self.user = self.request.user
 		return VenderMerchandise.objects.filter(seller=self.user)
+
+def update_inventory(request, pk, qty):
+	if request.is_ajax():
+		product_to_update = Merchandise.objects.get(pk=pk)
+		product_to_update.QTY = qty
+		product_to_update.save()
+		print('product updated')
+		return HttpResponse('Inventory Item: {}\nNew inventory amount: {}'.format(product_to_update.title, product_to_update.QTY))
+	else:
+		return HttpResponse('Sorry, not available')

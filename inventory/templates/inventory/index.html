@@ -10,21 +10,24 @@
 {% block content %}
       <!-- BEGIN PAGE CONTAINER-->
       <div class="page-content">
-        <div class="content">
+        <div class="content" style="background-color:{{ class_info.color }};">
           <!-- BEGIN PAGE TITLE -->
+          <div class="page-title">
+            <h3><span class="semi-bold">{{ class_info.title }}</span> Inventory</h3>
+          </div>
 <div class="row-fluid">
             <div class="span12">
               <div class="grid simple ">
                 <div class="grid-title">
                   <div class="inventory-selectors">
-                  <button class="btn btn-primary"><a href="{% url 'inventory.index' %}">All Inventory</a></button>
-                  <button class="btn btn-success"><a  href="{% url 'inventory.index' 'selling-inventory' %}">Selling Inventory</a></h4>
-                  </div>
-                  <div class="tools">
-                    <a href="javascript:;" class="collapse"></a>
-                    <a href="#grid-config" data-toggle="modal" class="config"></a>
-                    <a href="javascript:;" class="reload"></a>
-                    <a href="javascript:;" class="remove"></a>
+                  <a href="{% url 'inventory.index' %}"><button class="btn btn-primary">All Inventory</button></a>
+
+                  <a  href="{% url 'inventory.index' 'selling-inventory' %}"><button class="btn btn-success">For Sale</button></a>
+
+                  <a  href="{% url 'inventory.index' 'vender' %}"><button class="btn btn-warning">Vender</button></a>
+
+                  <a  href="{% url 'inventory.index' 'seller' %}"><button class="btn btn-info">Seller</button></a>
+
                   </div>
                 </div>
                 <div id="table-container" class="grid-body ">
@@ -32,8 +35,9 @@
                   <table class="table table-hover table-condensed">
                     <thead>
                       <tr>
-                        <th style="width:20%">Product</th>
-                        <th style="width:15%">SKU</th>
+                        <th style="width:5%">Type</th>
+                        <th style="width:10%">Product</th>
+                        <th style="width:5%">SKU</th>
                         <th style="width:6%" class="hide-sm">Wholesale</th>
                         <th style="width:6%" {% if products_selling %}class="hide-sm"{% endif %}>Inventory</th>
                         <th style="width:6%" {% if not products_selling %}class="hide-sm"{% endif %}>Selling</th>
@@ -45,23 +49,42 @@
                       {% for product in products %}
 
                       <tr {% if product.on_floor >= 1 %}style="background-color:#E0FFFF;"{% elif not product.QTY %}style="background-color:#FA8072;"{% endif %}>
-                        <td class="v-align-middle"><a href="/products/{{ product.pk }}">{{ product.title }}</a></td>
-                        <td class="v-align-middle"><span class="muted">{{ product.SKU }}</span></td>
-                        <td><span class="muted bold text-success hide-sm">${{ product.wholesale }}</span></td>
-                        <td><span class="muted">{{ product.QTY }}</span></td>
-                        <td><span class="muted hide-sm">{{ product.on_floor }}</span></td>
-                      </tr>
-                      {% endfor %}
 
-                      {% elif products_selling %}
+                        <td class="v-align-middle">
+                          <span style="color:{{ class_info.color }}">{{ product.class_name|capfirst }}</span>
+                        </td>
 
-                      {% for product in products_selling %}
-                      <tr style="background-color:#E0FFFF;">
-                        <td class="v-align-middle"><a href="/products/{{ product.pk }}">{{ product.title }}</a></td>
-                        <td class="v-align-middle"><span class="muted">{{ product.SKU }}</span></td>
-                        <td><span class="muted bold text-success hide-sm">${{ product.wholesale }}</span></td>
-                        <td><span class="muted hide-sm">{{ product.QTY }}</span></td>
-                        <td><span class="muted">{{ product.on_floor }}</span></td>
+                        <td class="v-align-middle">
+                          <a href="
+                          {% if product.class_name == 'vender' %}
+                            {% url 'vender_product.detail' product.pk %}
+                          {% else %}
+                            {% url 'seller_product.detail' product.pk %}
+                          {% endif %}" style="width:10%"
+                           >
+                            {{ product.title }}
+                          </a>
+                        </td>
+
+                        <td class="v-align-middle">
+                          <span class="muted">{{ product.SKU }}</span>
+                        </td>
+
+                        <td class="hide-sm">
+                          <span class="muted bold text-success">${{ product.wholesale }}</span>
+                        </td>
+
+                        <td {% if products_selling %}class="hide-sm"{% endif %}>
+                          {% if product.class_name != 'seller' %}
+                          <input type="number" value="{{ product.QTY }}" style="width:50px;" min="0"></input>
+                          {% else %}
+                          <span class="muted">{{ product.QTY }}</span>
+                          {% endif %}
+                        </td>
+
+                        <td {% if not products_selling %}class="hide-sm"{% endif %}>
+                          <span class="muted">{{ product.on_floor }}</span>
+                        </td>
                       </tr>
                       {% endfor %}
 
