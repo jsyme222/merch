@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block navbar %}
-  <body class="">
+  <body class="{% block body_class %}{% endblock %}">
     <!-- BEGIN HEADER -->
     <div class="header navbar navbar-inverse ">
       <!-- BEGIN TOP NAVIGATION BAR -->
@@ -156,17 +156,18 @@
               <a href="javascript:;"> <i class="fa fa-sort-amount-desc"></i> <span class="title">{{ user|capfirst }}'s Inventory</span> <span class=" arrow"></span> </a>
               <ul class="sub-menu">
                 <li> 
-                	<a href="{% url 'inventory.index' %}"><i class="fa fa-sort-alpha-desc"></i>All Inventory</a> 
+                	<a href="{% url 'inventory.index' %}"><i class="fa fa-sort-alpha-desc"></i> All Inventory</a> 
                 </li>
                 <li> 
-                	<a href="{% url 'products.add' %}"><i class="fa fa-plus-circle"></i> Add Products</a></li>
+                  <a href="{% url 'inventory.index' 'selling-inventory' %}"><i class="fa fa-truck"></i> Selling Inventory</a> 
+                </li>
               </ul>
             </li>
             <li>
-              <a href="javascript:;"> <i class="fa fa-tag"></i> <span class="title">On The Floor</span> <span class=" arrow"></span></a>
+              <a href="javascript:;"> <i class="fa fa-tag"></i> <span class="title">Products</span> <span class=" arrow"></span></a>
               <ul class="sub-menu">
                 <li> 
-                  <a href="{% url 'inventory.index' %}"><i class="fa fa-sort-alpha-desc"></i>Everything On Floor</a> 
+                  <a href="{% url 'products.add' %}"><i class="fa fa-plus-circle"></i> Add Product</a> 
                 </li>
                 <li> 
                   <a href="{% url 'products.add' %}"><i class="fa fa-plus-circle"></i> Add Products</a></li>
@@ -179,15 +180,15 @@
               <li>
                 <a href="#">
                   <span class="fa fa-cogs"></span>
-                  Settings</a>
+                   Settings</a>
               </li>
               <li class="folder-input" style="display:none">
                 <input type="text" placeholder="Name of folder" class="no-boarder folder-name" name="">
               </li>
               <li>
                 <a href="/accounts/logout/">
-                  <span class="fa fa-level-down"></span>
-                  Logout </a>
+                  <span class="fa fa-sign-out"></span>
+                   Logout </a>
               </li>
             </ul>
             <p class="menu-title">PROJECTS </p>

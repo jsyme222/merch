@@ -19,5 +19,25 @@ class MainIndex(View):
 	"""
 	def get(self, request):
 		context = {}
-		context['products'] = product_info(request)
+		products = product_info(request)
+
+		def get_product_count():
+			product_count = 0
+			for product in products:
+				if product.QTY:
+					qty = product.QTY
+					product_count += qty
+			return product_count
+
+		def get_on_floor_count():
+			on_floor = products.filter(on_floor__gte=1)
+			final_count = 0
+			for item in on_floor:
+				on_floor = item.on_floor
+				final_count += on_floor
+			return final_count
+
+		context['product_count'] = get_product_count()
+		context['on_floor_count'] = get_on_floor_count()
+
 		return render(request, 'main/index.html', context)

@@ -39,14 +39,18 @@
                   </div>
                   <div class="tiles-title text-black">INVENTORY INFO</div>
                   <div class="widget-stats">
-                    <div class="wrapper transparent">
-                      <span class="item-title">Total Inventory Items</span> <span class="item-count animate-number semi-bold" data-value="{{ products|length }}" data-animation-duration="700">0</span>
+                    <a href="{% url 'inventory.index' %}">
+                      <div class="wrapper transparent">
+                      <span class="item-title">Total Products</span> <span class="item-count animate-number semi-bold" data-value="{{ product_count }}" data-animation-duration="700">0</span>
                     </div>
+                  </a>
                   </div>
                   <div class="widget-stats">
+                    <a href="{% url 'inventory.index' 'selling-inventory' %}">
                     <div class="wrapper transparent">
-                      <span class="item-title">On The Floor</span> <span class="item-count animate-number semi-bold" data-value="{{ products|length }}" data-animation-duration="700">0</span>
+                      <span class="item-title">Selling</span> <span class="item-count animate-number semi-bold" data-value="{{ on_floor_count }}" data-animation-duration="700">0</span>
                     </div>
+                  </a>
                   </div>
                   <div class="widget-stats ">
                     <div class="wrapper last">

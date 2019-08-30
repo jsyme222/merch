@@ -18,10 +18,8 @@ class InventoryListView(ListView):
 		model = Merchandise.objects.filter(seller=request.user)
 
 		if inventory != 'full-inventory':
-			if inventory == 'floor-inventory':
-				context['products'] = model.filter(on_floor__gte=1)
-			else:
-				HttpResponse('Oops, no inventory of that title available.')
+			if inventory == 'selling-inventory':
+				context['products_selling'] = model.filter(on_floor__gte=1)
 		else:
 			context['products'] = model
 			

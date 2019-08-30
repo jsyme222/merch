@@ -9,9 +9,15 @@ class AddVenderMerchandiseForm(forms.Form):
 	Form to add VenderMerchandise 
 	to products list
 	"""
-	vender = forms.ModelChoiceField(queryset=Vender.objects.all())
+	vender = forms.ModelChoiceField(
+		queryset=Vender.objects.all(),
+		help_text='<br><a href="#">Add Vender</a>',
+		)
 
-	SKU = forms.CharField(max_length=100)
+	SKU = forms.CharField(
+		max_length=100, 
+		label='SKU',
+	)
 
 	title = forms.CharField(
 		max_length=250, 
@@ -21,12 +27,14 @@ class AddVenderMerchandiseForm(forms.Form):
 		max_digits=6, 
 		decimal_places=2,
 		required=False,
+		label='Wholesale Cost',
 	)
 
 	resale = forms.DecimalField(
 		max_digits=6, 
 		decimal_places=2,
 		required=False, 
+		label='Suggested Retail',
 	)
 	
 	img = forms.ImageField(
@@ -35,10 +43,12 @@ class AddVenderMerchandiseForm(forms.Form):
 
 	QTY = forms.IntegerField(
 		required=False,
+		label='Quantity in inventory',
 	)
 
 	on_floor = forms.IntegerField(
 		required=False,
+		label='Selling',
 	)
 
 	online_info = forms.BooleanField(

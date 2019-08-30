@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 
 from django.db import models
 from django.conf import settings
+from django.utils.html import mark_safe
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 
@@ -94,6 +95,7 @@ class Merchandise(models.Model):
 	)
 
 	on_floor = models.IntegerField(
+		verbose_name='Selling',		
 		blank=True,
 		null=True,
 		default=0,
@@ -102,7 +104,7 @@ class Merchandise(models.Model):
 	created_on = models.DateTimeField(auto_now_add=True)
 
 	def image_tag(self):
-		return mark_safe('<img src="/media/%s" width="200" height="150" />' % (self.image))
+		return mark_safe('<img src="/media/%s" width="200" height="150" class="bordered" />' % (self.img))
 
 	image_tag.short_description = 'Image'
 

@@ -1,6 +1,7 @@
 {% extends 'base/base-site.html' %}
 {% load static %}
 
+{% block body_class %}product_page{% endblock %}
 {% block styles %}
     <link href="{% static 'main/assets/plugins/jquery-datatable/css/jquery.dataTables.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'main/assets/plugins/datatables-responsive/css/datatables.responsive.css' %}" rel="stylesheet" type="text/css" media="screen" />
@@ -17,7 +18,7 @@
                 <div class="grid-title">
                   <div class="inventory-selectors">
                   <button class="btn btn-primary"><a href="{% url 'inventory.index' %}">All Inventory</a></button>
-                  <button class="btn btn-success"><a  href="{% url 'inventory.index' 'floor-inventory' %}">Floor Inventory</a></h4>
+                  <button class="btn btn-success"><a  href="{% url 'inventory.index' 'selling-inventory' %}">Selling Inventory</a></h4>
                   </div>
                   <div class="tools">
                     <a href="javascript:;" class="collapse"></a>
@@ -32,15 +33,18 @@
                     <thead>
                       <tr>
                         <th style="width:20%">Product</th>
-                        <th style="width:10%">SKU</th>
+                        <th style="width:15%">SKU</th>
                         <th style="width:6%" class="hide-sm">Wholesale</th>
-                        <th style="width:6%">Qty</th>
-                        <th style="width:6%" class="hide-sm">Floor</th>
+                        <th style="width:6%" {% if products_selling %}class="hide-sm"{% endif %}>Inventory</th>
+                        <th style="width:6%" {% if not products_selling %}class="hide-sm"{% endif %}>Selling</th>
                       </tr>
                     </thead>
                     <tbody>
+                      {% if products %}
+
                       {% for product in products %}
-                      <tr>
+
+                      <tr {% if product.on_floor >= 1 %}style="background-color:#E0FFFF;"{% elif not product.QTY %}style="background-color:#FA8072;"{% endif %}>
                         <td class="v-align-middle"><a href="/products/{{ product.pk }}">{{ product.title }}</a></td>
                         <td class="v-align-middle"><span class="muted">{{ product.SKU }}</span></td>
                         <td><span class="muted bold text-success hide-sm">${{ product.wholesale }}</span></td>
@@ -48,6 +52,21 @@
                         <td><span class="muted hide-sm">{{ product.on_floor }}</span></td>
                       </tr>
                       {% endfor %}
+
+                      {% elif products_selling %}
+
+                      {% for product in products_selling %}
+                      <tr style="background-color:#E0FFFF;">
+                        <td class="v-align-middle"><a href="/products/{{ product.pk }}">{{ product.title }}</a></td>
+                        <td class="v-align-middle"><span class="muted">{{ product.SKU }}</span></td>
+                        <td><span class="muted bold text-success hide-sm">${{ product.wholesale }}</span></td>
+                        <td><span class="muted hide-sm">{{ product.QTY }}</span></td>
+                        <td><span class="muted">{{ product.on_floor }}</span></td>
+                      </tr>
+                      {% endfor %}
+
+                      {% endif %}
+
                     </tbody>
                   </table>
                   {% endblock %}

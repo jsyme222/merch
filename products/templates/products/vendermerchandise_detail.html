@@ -1,26 +1,32 @@
 {% extends 'base/base-site.html' %}
+
+{% block body_class %}
+product_page
+{% endblock %}
+
 {% block content %}
       <!-- BEGIN PAGE CONTAINER-->
       <div class="page-content">
         <div class="content">
           <!-- BEGIN PAGE TITLE -->
           <div class="page-title">
-            <h3>{{ object.title }}</h3>
+            <h3>View Product</h3>
           </div>
           <!-- END PAGE TITLE -->
           <!-- BEGIN PlACE PAGE CONTENT HERE -->
 
           <div class="col-md-8 col-vlg-6 m-b-10 ">
               <div class="tiles white">
+            <h3 style="padding:20px;">{{ object.title }}</h3>
                 <div class="row">
                   <div class="sales-graph-heading">
-                    <div class="col-md-3 col-sm-3">
+                    <div class="col-md-3 col-sm-2">
                       <p class="semi-bold">Inventory</p>
-                      <h4><span class="semi-bold">{{ object.QTY }}</span></h4>
+                      <h4><span class="semi-bold bordered">{{ object.QTY }}</span></h4>
                     </div>
-                    <div class="col-md-4 col-sm-3">
-                      <p class="semi-bold">Floor</p>
-                      <h4><span class="semi-bold">{{ object.on_floor }}</span></h4>
+                    <div class="col-md-3 col-sm-2">
+                      <p class="semi-bold">Selling</p>
+                      <h4><span class="semi-bold bordered">{{ object.on_floor }}</span></h4>
                     </div>
                   </div>
                 </div>
@@ -43,7 +49,7 @@
                 <div class="row">
                   <div class="sales-graph-heading">
                     {% if object.vender %}
-                    <div class="col-md-3 col-sm-5">
+                    <div class="col-md-3 col-sm-3">
                       <h5 class="no-margin">Vender</h5>
                       <h4><span class="semi-bold">{{ object.vender }}</span></h4>
                     </div>
@@ -51,25 +57,26 @@
                     <div class="col-md-3 col-sm-3">
                       <p class="semi-bold">SKU</p>
                       <h4><span class="semi-bold">{{ object.SKU }}</span></h4>
+                      <div class="clearfix"></div>
                     </div>
-                    
-                    {% if object.img %}
-                    <div class="col-md-3 col-sm-3">
-                      <img src="{{ object.img.url }}" class="product-img" alt="{{ object.title }}" />
-                    </div>
-                    {% endif %}
-                    <div class="clearfix"></div>
                   </div>
-                </div>
+                    {% if object.img %}
+                  <div class="row">
+                    <div class="col-md-6 col-sm-3">
+                      <img class="product-img bordered" src="{{ object.img.url }}" />
+                    </div>
+                  </div>
+                    <div class="clearfix"></div>
+                    {% endif %}
+                  </div>
 
                 <h5 class="semi-bold m-t-30 m-l-30">LAST SALE</h5>
-                <table class="table no-more-tables m-t-20 m-l-20 m-b-30">
+                <table class="table no-more-tables m-t-20 m-b-30">
                   <thead style="display:none">
                     <tr>
                       <th style="width:9%">Project Name</th>
                       <th style="width:22%">Description</th>
                       <th style="width:6%">Price</th>
-                      <th style="width:1%"> </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -77,17 +84,19 @@
                       <td class="v-align-middle bold text-success">25601</td>
                       <td class="v-align-middle"><span class="muted">Redesign project template</span> </td>
                       <td><span class="muted bold text-success">$4,500</span> </td>
-                      <td class="v-align-middle"></td>
                     </tr>
                     <tr>
                       <td class="v-align-middle bold text-success">25601</td>
                       <td class="v-align-middle"><span class="muted">Redesign project template</span> </td>
                       <td><span class="muted bold text-success">$4,500</span> </td>
-                      <td class="v-align-middle"></td>
                     </tr>
                   </tbody>
                 </table>
+                <div class="container">
                 <button class="btn btn-primary"><a href="{% url 'products.update' object.pk %}">Edit Product</a></button>
+              </div>
+              
+                </div>
               </div>
             </div>
           <!-- END PLACE PAGE CONTENT HERE -->

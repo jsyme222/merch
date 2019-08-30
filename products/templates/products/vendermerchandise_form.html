@@ -1,6 +1,7 @@
 {% extends 'base/base-site.html' %}
 {% load static %}
 
+{% block body_class %}product_page{% endblock %}
 {% block styles %}
    <link href="{% static 'main/assets/plugins/bootstrap-select2/select2.css' %}" rel="stylesheet" type="text/css" media="screen" />
   <link href="{% static 'main/assets/plugins/ios-switch/ios7-switch.css' %}" rel="stylesheet" type="text/css" media="screen">
@@ -9,92 +10,20 @@
       <!-- BEGIN PAGE CONTAINER-->
       <div class="page-content">
         <div class="content">
+          <div class="tiles black">
+            <div class="add-form">
           <div class="page-title">
             <h3>Add Product</h3>
           </div>
           <form method="POST">
             {% csrf_token %}
-                  <!--<div class="row">
-                    <div class="col-md-3">
-                     <label for="id_vender"><h5>Vender <span class="semi-bold">CHOICE</span></h5></label>
-                      <select id="id_vender" name="id_vender" style="width:100%">
-                        <optgroup label="Online Venders">
-                          {% for vender in venders %}
-                          <option value="{{ vender }}">{{ vender.vender }}</option>
-                          {% endfor %}
-                        </optgroup>
-                      </select>
-
-                        <span class="help"><a href="#">Add Vender</a></span>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-md-3">
-                      <label for="id_SKU"><h5>Product <span class="semi-bold">SKU</span></h5></label>
-                        <span class="help">e.g. "XYZ123654"</span>
-                        <div class="controls">
-                          <input id="id_SKU" name="id_SKU" type="text" class="form-control" required >
-                        </div>
-                      </div>
-                    </div>
-                  <div class="row">
-                    <div class="col-md-3">
-                      <label for="id_title"><h5>Product <span class="semi-bold">TITLE</span></h5></label>
-                        <span class="help">e.g. "Mona Lisa Portrait"</span>
-                        <div class="controls">
-                          <input id="id_title" name="id_title" type="text" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-3">
-                      <label for="id_wholesale"><h5>Wholesale <span class="semi-bold">COST</span></h5></label>
-                        <span class="help">e.g. "4.50"</span>
-                        <div class="controls">
-                          <input id="id_wholesale" name="id_wholesale" type="number" class="form-control" step="0.01">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-3">
-                      <label for="id_resale"><h5>Resale <span class="semi-bold">VALUE</span></h5></label>
-                        <span class="help">e.g. "9.00"</span>
-                        <div class="controls">
-                          <input id="id_resale" name="id_resale" type="number" class="form-control" step="0.01">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-3">
-                      <label for="id_img"><h5>Product <span class="semi-bold">IMAGE</span></h5></label>
-                        <div class="controls">
-                          <input id="id_img" name="id_img" type="file" />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-md-3">
-                      <label for="id_QTY"><h5>Available <span class="semi-bold">QUANTITY</span></h5></label>
-                        <span class="help">e.g. "5"</span>
-                        <div class="controls">
-                          <input id="id_QTY" name="id_QTY" type="number" class="form-control">
-                        </div>
-                      </div>
-                    </div>
-                      <div class="row-fluid">
-                        <label for="id_online_info"><h5>Online <span class="semi-bold">INFO</span></h5></label>
-                      <div class="slide-primary">
-                          <input type="checkbox" id="id_online_info" name="id_online_info" class="ios" />
-                        </div>
-                        <span class="help">If selected, information will be gathered from vender website when available</span>
-                        
-                      </div> -->
-                      {{ form.as_p }}
-                      {{ form.errors }}
-                      {{ forms.non_field_errors }}
+            {{ form.as_p }}
+            {{ form.errors }}
+            {{ forms.non_field_errors }}
             <input type="submit" value="Save" class="btn btn-primary btn-cons">
           </form>
+        </div>
+        </div>
         </div>
       </div>
 {% endblock %}
