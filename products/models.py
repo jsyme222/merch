@@ -139,6 +139,8 @@ class SellerMerchandise(Merchandise):
 
 	expenses = models.ManyToManyField(Expense, blank=True,)
 
+	record_stats = models.BooleanField(default=True,)
+
 	def save(self, *args, **kwargs):
 		self.class_name = 'seller'
 		super(Merchandise, self).save(*args, **kwargs)
@@ -164,11 +166,22 @@ class VenderMerchandise(Merchandise):
 	)
 
 	def get_product_info(self):
+
+		def get_upload_location(file):
+			return 'media/products/{}'.format(file)
+
 		product_info = {}
 		page = requests.get(self.vender.url + self.SKU)
 		print('################' + str(page.status_code))
 		html = page.text
 		soup = BeautifulSoup(html, 'html.parser')
+		#Store copy of details
+		try:
+			with open(get_upload_location('/html/{}.html'.format(self.SKU))) as f:
+				f.write(html)
+		except Exception:
+			print('Fialed with exception : {}'.format(Exception))
+
 		domain = self.vender.url.split('/')
 		img = soup.find('img', attrs={'id':re.compile(r'^ProductPic')})
 
@@ -181,16 +194,13 @@ class VenderMerchandise(Merchandise):
 			file_name = local_url.split('/')[-1]
 			download_url = '/'.join(domain[:3]) + local_url 
 
-			def get_location():
-				return 'media/products/{}'.format(file_name)
-
 			try:
 				data = urlopen(download_url).read()
-				output = open(get_location(), 'wb')
+				output = open(get_upload_location(file_name), 'wb')
 				output.write(data)
 				output.close()
 
-				final = get_location().split('/')
+				final = get_upload_location(file_name).split('/')
 				final_url = '/'.join(final[1:])
 				return final_url
 
