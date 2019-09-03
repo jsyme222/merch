@@ -2,6 +2,7 @@
 import os
 import requests
 import re
+from urllib.error import URLError
 from urllib.request import urlopen
 
 from bs4 import BeautifulSoup
@@ -167,48 +168,57 @@ class VenderMerchandise(Merchandise):
 
 	def get_product_info(self):
 
-		def get_upload_location(file):
-			return 'media/products/{}'.format(file)
+		# def get_upload_location(file):
+		# 	return 'media/products/{}'.format(file)
+
+		# def store_html_copy(self, data):
+		# 	#Store copy of details
+		# 	try:
+		# 		output = open('media/products/html/prod.html', 'w')
+		# 		print('Opened file')
+		# 		output.write(data)
+		# 		output.close()
+		# 		return
+		# 	except:
+		# 		print('Failed with exception')
+		# 		pass
 
 		product_info = {}
 		page = requests.get(self.vender.url + self.SKU)
 		print('################' + str(page.status_code))
 		html = page.text
 		soup = BeautifulSoup(html, 'html.parser')
-		#Store copy of details
-		try:
-			with open(get_upload_location('/html/{}.html'.format(self.SKU))) as f:
-				f.write(html)
-		except Exception:
-			print('Fialed with exception : {}'.format(Exception))
-
+		#store_html_copy(self, soup)
 		domain = self.vender.url.split('/')
-		img = soup.find('img', attrs={'id':re.compile(r'^ProductPic')})
 
-		def get_title():
+		img = soup.find('img', id=re.compile(r'^Product'))
+
+		def get_title(img):
 			title = img['alt']
 			return title
 
-		def get_image():
+		def get_image(img):
 			local_url = img['src']
 			file_name = local_url.split('/')[-1]
 			download_url = '/'.join(domain[:3]) + local_url 
 
 			try:
 				data = urlopen(download_url).read()
-				output = open(get_upload_location(file_name), 'wb')
+				print('Opened Url')
+				output = open('/media/products/file.jpg', 'wb')
+				print('Created file')
 				output.write(data)
+				print('Image written')
 				output.close()
 
-				final = get_upload_location(file_name).split('/')
-				final_url = '/'.join(final[1:])
+				final_url = 'products/{}'.format(file_name)
 				return final_url
 
-			except Exception:
-				return 'Error: {}'.format(Exception)
+			except URLError:
+				print('Error in {}'.format(__name__))
 
-		product_info['title'] = get_title()
-		product_info['image'] = get_image()
+		product_info['title'] = get_title(img)
+		product_info['image'] = get_image(img)
 
 		return product_info
 
