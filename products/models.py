@@ -185,44 +185,45 @@ class VenderMerchandise(Merchandise):
 
 		product_info = {}
 		page = requests.get(self.vender.url + self.SKU)
-		print('################' + str(page.status_code))
-		html = page.text
-		soup = BeautifulSoup(html, 'html.parser')
-		#store_html_copy(self, soup)
-		domain = self.vender.url.split('/')
-
-		img = soup.find('img', id=re.compile(r'^Product'))
-
-		def get_title(img):
-			title = img['alt']
-			return title
-
-		def get_image(img):
-			local_url = img['src']
-			file_name = local_url.split('/')[-1]
-			download_url = '/'.join(domain[:3]) + local_url 
-
+		if page.status_code == 200:
 			try:
-				data = urlopen(download_url).read()
-				vender_dir = 'media/products/{}'.format(self.vender.vender)
-				if not os.path.exists(vender_dir):
-					os.mkdir(vender_dir)
-				output = open(vender_dir + '/' + file_name, 'wb')
-				output.write(data)
-				output.close()
+				html = page.text
+				soup = BeautifulSoup(html, 'html.parser')
+				#store_html_copy(self, soup)
+				domain = self.vender.url.split('/')
 
-				final_url = 'products/{}/{}'.format(self.vender.vender, file_name)
-				return final_url
+				img = soup.find('img', id=re.compile(r'^Product'))
 
-			except URLError:
-				print('Error in {}'.format(__name__))
+				def get_title(img):
+					title = img['alt']
+					return title
 
-		try:
-			product_info['title'] = get_title(img)
-			product_info['image'] = get_image(img)
-		except:
-			product_info['title'] = 'None'
-			product_info['image'] = 'None'
+				def get_image(img):
+					local_url = img['src']
+					file_name = local_url.split('/')[-1]
+					download_url = '/'.join(domain[:3]) + local_url 
+
+					try:
+						data = urlopen(download_url).read()
+						vender_dir = 'media/products/{}'.format(self.vender.vender)
+						if not os.path.exists(vender_dir):
+							os.mkdir(vender_dir)
+						output = open(vender_dir + '/' + file_name, 'wb')
+						output.write(data)
+						output.close()
+
+						final_url = 'products/{}/{}'.format(self.vender.vender, file_name)
+						return final_url
+
+					except URLError:
+						print('Error in {}'.format(__name__))
+
+					product_info['title'] = get_title(img)
+					product_info['image'] = get_image(img)
+			
+			except:
+				product_info['title'] = 'None'
+				product_info['image'] = 'None'
 
 		return product_info
 
@@ -230,7 +231,7 @@ class VenderMerchandise(Merchandise):
 		try:
 			product = Merchandise.objects.get(SKU=self.SKU)
 			return True
-		except:
+		except Merchandise.DoesNotExist:
 			return False
 
 	def save(self, *args, **kwargs):
