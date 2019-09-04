@@ -204,21 +204,25 @@ class VenderMerchandise(Merchandise):
 
 			try:
 				data = urlopen(download_url).read()
-				print('Opened Url')
-				output = open('/media/products/file.jpg', 'wb')
-				print('Created file')
+				vender_dir = 'media/products/{}'.format(self.vender.vender)
+				if not os.path.exists(vender_dir):
+					os.mkdir(vender_dir)
+				output = open(vender_dir + '/' + file_name, 'wb')
 				output.write(data)
-				print('Image written')
 				output.close()
 
-				final_url = 'products/{}'.format(file_name)
+				final_url = 'products/{}/{}'.format(self.vender.vender, file_name)
 				return final_url
 
 			except URLError:
 				print('Error in {}'.format(__name__))
 
-		product_info['title'] = get_title(img)
-		product_info['image'] = get_image(img)
+		try:
+			product_info['title'] = get_title(img)
+			product_info['image'] = get_image(img)
+		except:
+			product_info['title'] = 'None'
+			product_info['image'] = 'None'
 
 		return product_info
 
