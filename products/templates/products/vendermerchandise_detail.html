@@ -24,17 +24,25 @@ product_page
                   <div class="sales-graph-heading">
                     <div class="col-md-3 col-sm-2">
                       <p class="semi-bold">Inventory</p>
-                      <input id="qty" type="number" value="{{ object.QTY }}" style="width:50px;" min="{{ object.on_floor }}" onchange="update_qty_val(this.value)"></input>
+
+                      <input id="qty{{ object.pk }}" type="number" value="{{ object.QTY }}" style="width:50px;" min="{{ object.on_floor }}" onchange="update_qty_val({{ object.pk }}, this.value)"></input>
+
                       <br>
-                      <button id="update-inventory" class="btn btn-xs btn-mini btn-primary" type="button" value="{{ object.pk }}">UPDATE</button>
+                      <button id="update-inventory" class="btn btn-xs btn-mini btn-primary" type="button" value="{{ object.pk }}" onclick="update_qty(this.value)">UPDATE</button>
                     </div>
                     <br>
+
                     <div class="col-md-3 col-sm-2">
                       <p class="semi-bold">Selling</p>
-                      <input type="number" value="{{ object.on_floor }}" style="width:50px;" min="{{ object.on_floor }}"></input>
+
+                      <input id="selling{{ object.pk }}" type="number" value="{{ object.on_floor }}" style="width:50px;" min="{{ object.on_floor }}" max="{{ object.QTY }}" onchange="update_selling_val({{ object.pk }}, this.value)">
+                    </input>
+
+                      <br>
+                      <button class="btn btn-xs btn-mini btn-primary" type="button" value="{{ object.pk }}" onclick="update_selling(this.value)">UPDATE</button>
                       {% if object.on_floor >= 1 %}
                       <br>
-                      <button class="btn btn-xs btn-mini btn-danger" type="button">RECORD SALE</button>
+                      <button class="btn btn-xs btn-mini btn-danger" type="button" value="{{ object.pk }}">RECORD SALE</button>
                       {% endif %}
                     </div>
                   </div>

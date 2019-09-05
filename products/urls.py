@@ -11,4 +11,5 @@ urlpatterns = [
 	path('seller/<int:pk>/', SellerMerchandiseDetail.as_view(), name='seller_product.detail'),
 	path('update/<int:pk>/', VenderMerchandiseUpdate.as_view(), name='products.update'),
 	path('ajax/update-inventory/<int:pk>/<int:qty>/', views.update_inventory, name='products.update_inventory'),
+	path('ajax/update-selling/<int:pk>/<int:qty>/', views.update_on_floor, name='products.update_selling'),
 ]

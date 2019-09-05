@@ -107,3 +107,13 @@ def update_inventory(request, pk, qty):
 		return HttpResponse('Inventory Item: {}\nNew inventory amount: {}'.format(product_to_update.title, product_to_update.QTY))
 	else:
 		return HttpResponse('Sorry, not available')
+
+def update_on_floor(request, pk, qty):
+	if request.is_ajax():
+		product_to_update = Merchandise.objects.get(pk=pk)
+		product_to_update.on_floor = qty
+		product_to_update.save()
+		print('product updated')
+		return HttpResponse('Inventory Item: {}\nNew selling amount: {}'.format(product_to_update.title, product_to_update.on_floor))
+	else:
+		return HttpResponse('Sorry, not available')

@@ -128,7 +128,7 @@ class Merchandise(models.Model):
 		return self.title + ' => ' + self.seller.username
 
 	def get_absolute_url(self):
-		return "/products/%i/" % self.pk
+		return "/products/{}/{}/".format(self.class_name, self.pk)
 
 class SellerMerchandise(Merchandise):
 	"""
@@ -167,21 +167,6 @@ class VenderMerchandise(Merchandise):
 	)
 
 	def get_product_info(self):
-
-		# def get_upload_location(file):
-		# 	return 'media/products/{}'.format(file)
-
-		# def store_html_copy(self, data):
-		# 	#Store copy of details
-		# 	try:
-		# 		output = open('media/products/html/prod.html', 'w')
-		# 		print('Opened file')
-		# 		output.write(data)
-		# 		output.close()
-		# 		return
-		# 	except:
-		# 		print('Failed with exception')
-		# 		pass
 
 		product_info = {}
 		page = requests.get(self.vender.url + self.SKU)
@@ -239,16 +224,19 @@ class VenderMerchandise(Merchandise):
 			if self.check_SKU():
 				product = Merchandise.objects.get(SKU=self.SKU)
 				self.title = product.title
-				self.wholesale = product.wholesale
-				self.resale = product.resale
+				if product.resale:
+					self.resale = product.resale
+				else:
+					self.resale = self.wholesale * 2
+				self.resale = product.wholesale
 				self.profit = product.profit
 				self.img = product.img
 			else:
 				info = self.get_product_info()
-				self.resale = self.wholesale * 2
 				if self.online_info:
 					self.img = info['image']
 					self.title = info['title']
 			self.online_info = False
 		self.class_name = 'vender'
+		self.resale = self.wholesale * 2
 		super(Merchandise, self).save(*args, **kwargs)
