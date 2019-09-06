@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 
 from products.models import Vender, VenderMerchandise
-class Reciept:
+class Receipt:
 
 	def __init__(self, path, seller, vender):
 		self.path = path
@@ -20,7 +20,7 @@ class Reciept:
 			page = pdf.getPage(0)
 			self.text = page.extractText()	
 			self.listed_items = self.text.split('\n')
-			print('Reciept {} added'.format(pdf))
+			print('receipt {} added'.format(pdf))
 
 	def products(self):
 
@@ -83,14 +83,14 @@ class Reciept:
 				)
 			product.save()
 
-class VenderReciept(models.Model):
+class VenderReceipt(models.Model):
 	"""
-	Uploadable reciept that 
+	Uploadable receipt that 
 	inventory will be added
 	to inventory
 	"""
 	class Meta:
-		verbose_name_plural='Reciepts'
+		verbose_name_plural='receipts'
 
 	seller = models.ForeignKey(
 		settings.AUTH_USER_MODEL, 
@@ -131,16 +131,16 @@ class VenderReciept(models.Model):
 	)
 
 	def get_upload_location(self, file):
-		path = 'media/reciepts/{}'.format(self.seller)
+		path = 'media/receipts/{}'.format(self.seller)
 		if not os.path.exists(path):
 			os.mkdir(path)
 		file = str(file).replace(' ','_')
-		return 'reciepts/{}/{}'.format(self.seller, file)
+		return 'receipts/{}/{}'.format(self.seller, file)
 
-	reciept = models.FileField(upload_to=get_upload_location)
+	receipt = models.FileField(upload_to=get_upload_location)
 			
 	def save(self, *args, **kwargs):
 		super().save(*args, **kwargs)
-		reciept_url = 'media/{}'.format(self.reciept)
-		reciept = Reciept(reciept_url, self.seller, self.vender)
-		reciept.save()
+		receipt_url = 'media/{}'.format(self.receipt)
+		receipt = Receipt(receipt_url, self.seller, self.vender)
+		receipt.save()

@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 import main.urls
 import inventory.urls
 import products.urls
+import ordering.urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -14,6 +15,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('inventory/', include('inventory.urls')),
     path('products/', include('products.urls')),
+    path('ordering/', include('ordering.urls')),
 ]
 
 if settings.DEBUG:

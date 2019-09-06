@@ -60,7 +60,8 @@ class MainIndex(View):
 		inventory = get_inventory_info()
 		context['product_count'] = inventory['product_count']
 		context['on_floor_count'] = inventory['on_floor_count']
-		context['selling_average'] = round(ave_product_selling(inventory['on_floor_count'], inventory['product_count']))
+		if inventory['product_count'] > 0:
+			context['selling_average'] = round(ave_product_selling(inventory['on_floor_count'], inventory['product_count']))
 		context['invested'] = inventory['invested']
 		
 		return render(request, 'main/index.html', context)

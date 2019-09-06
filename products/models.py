@@ -140,8 +140,6 @@ class SellerMerchandise(Merchandise):
 
 	expenses = models.ManyToManyField(Expense, blank=True,)
 
-	record_stats = models.BooleanField(default=True,)
-
 	def save(self, *args, **kwargs):
 		self.class_name = 'seller'
 		super(Merchandise, self).save(*args, **kwargs)
