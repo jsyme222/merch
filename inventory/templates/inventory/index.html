@@ -10,10 +10,10 @@
 {% block content %}
       <!-- BEGIN PAGE CONTAINER-->
       <div class="page-content">
-        <div class="content" style="background-color:{{ class_info.color }};">
+        <div class="content" style="background-color:{{ group_details.color }};">
           <!-- BEGIN PAGE TITLE -->
           <div class="page-title">
-            <h3><span class="semi-bold">{{ class_info.title }}</span> Inventory</h3>
+            <h3><span class="semi-bold">{{ group_details.title }}</span> Inventory</h3>
           </div>
 <div class="row-fluid">
             <div class="span12">
@@ -35,12 +35,12 @@
                   <table class="table table-hover table-condensed">
                     <thead>
                       <tr>
-                        <th style="width:5%">Type</th>
+                        <th style="width:1%">#</th>
+                        <th style="width:1%;{% if is_selling %}display:none;{% endif %}">Selling</th>
                         <th style="width:10%">Product</th>
                         <th style="width:5%">SKU</th>
                         <th style="width:6%" class="hide-sm">Wholesale</th>
-                        <th style="width:6%" {% if products_selling %}class="hide-sm"{% endif %}>Inventory</th>
-                        <th style="width:6%" {% if not products_selling %}class="hide-sm"{% endif %}>Selling</th>
+                        <th style="width:1%" {% if products_selling %}class="hide-sm"{% endif %}>Inventory</th>
                         <th style="width:6%" class="hide-sm">Added On</th>
                       </tr>
                     </thead>
@@ -49,10 +49,16 @@
 
                       {% for product in products %}
 
-                      <tr {% if product.on_floor >= 1 %}style="background-color:#E0FFFF;"{% elif not product.QTY %}style="background-color:#FA8072;"{% endif %}>
-
+                      <tr class="table-overlay-{% cycle 'light' 'dark' %}">
+                        <div >
                         <td class="v-align-middle">
-                          <span style="color:{{ class_info.color }}">{{ product.class_name|capfirst }}</span>
+                          <span style="color:{{ class_info.color }}">{{ product.pk }}</span>
+                        </td>
+
+                        <td{% if is_selling %}style="display:none;"{% endif %}>
+
+                          <input type="checkbox" style="width:20px;{% if is_selling %}display:none;{% endif %}" disabled {% if product.on_floor >= 1 %}checked{% endif %}></input>
+
                         </td>
 
                         <td class="v-align-middle">
@@ -77,20 +83,12 @@
 
                         <td {% if products_selling %}class="hide-sm"{% endif %}>
                           {% if product.class_name != 'seller' %}
-                          <input  id="qty{{ product.pk }}" type="number" value="{{ product.QTY }}" style="width:50px;" min="{{ product.on_floor }}" onchange="update_qty_val({{ product.pk }}, this.value)"></input>
+                          <input  id="qty{{ product.pk }}" type="number" value="{{ product.QTY }}" style="width:50px;" min="{{ product.on_floor }}" onchange="update_object_val({{ product.pk }}, this.value, {{ product.QTY }}, 'qty')"></input>
                           <br>
                           <button id="qty-btn-{{ product.pk }}" class="btn btn-xs btn-mini btn-primary hidden-button" type="button" value="{{ product.pk }}" onclick="update_qty(this.value)">UPDATE</button>
                           {% else %}
                           <span class="muted">{{ product.QTY }}</span>
                           {% endif %}
-                        </td>
-
-                        <td {% if not products_selling %}class="hide-sm"{% endif %}>
-
-                          <input  id="selling{{ product.pk }}" type="number" value="{{ product.on_floor }}" style="width:50px;" min="{{ product.on_floor }}" onchange="update_selling_val({{ product.pk }}, this.value)"></input>
-                          <br>
-                          <button id="selling-btn-{{ product.pk }}" class="btn btn-xs btn-mini btn-primary hidden-button" type="button" value="{{ product.pk }}" onclick="update_selling(this.value)">UPDATE</button>
-
                         </td>
                         <td class="hide-sm">
                           <span class="muted bold text-success">{{ product.created_on|date:"m/d/y" }}</span>
@@ -103,9 +101,31 @@
                     </tbody>
                   </table>
                   {% endblock %}
+{% if products.has_other_pages %}
+  <ul class="pagination">
+    {% if products.has_previous %}
+      <li><a href="?page={{ products.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in products.paginator.page_range %}
+      {% if products.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if products.has_next %}
+      <li><a href="?page={{ products.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>

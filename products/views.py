@@ -73,7 +73,6 @@ class VenderMerchandiseDetail(DetailView):
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
-		context['now'] = timezone.now()
 		return context
 
 class SellerMerchandiseDetail(DetailView):
@@ -93,7 +92,7 @@ class VenderMerchandiseUpdate(UpdateView):
 	Update VenderMerchandise objects
 	"""
 	fields = ['vender', 'SKU', 'title', 'wholesale', 'resale', 'img', 'QTY', 'on_floor', 'online_info',]
-
+	template_name = 'products/vendermerchandiseupdate_form.html'
 	def get_queryset(self):
 		self.user = self.request.user
 		return VenderMerchandise.objects.filter(seller=self.user)

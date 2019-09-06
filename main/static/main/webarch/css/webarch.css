@@ -3892,6 +3892,11 @@ table.fc-border-separate {
 }
 form {
   margin: 0;
+  padding: 2rem;
+  color: #232323;
+  background-color: rgba(0,0,0,0.2);
+  border: 10px solid rgba(1,1,1,0.3);
+  border-radius: 20px;
 }
 form legend {
   margin: 15px 0px 10px 0px !important;
@@ -5008,7 +5013,7 @@ form legend,
 }
 .grid.simple .grid-body {
   background-color: #ffffff;
-  padding: 26px;
+  padding: 5px;
   border: 1px solid #dddddd;
   color: #6f7b8a;
 }
@@ -6395,7 +6400,7 @@ h4.custom-line-height {
   border: none;
   text-shadow: none;
   box-shadow: none;
-  transition: all 0.12s linear 0s !important;
+  transition: all 0.4s linear 0s !important;
   font: 14px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .btn:focus {
@@ -10221,4 +10226,11 @@ body.rtl .footer-widget {
 
 .hidden-button{
   display: none;
+}
+
+.table-overlay-dark{
+  background-color: rgba(55,55,55,0.2);
+}
+.table-overlay-light{
+  background-color: rgba(200,200,200,0.2);
 }

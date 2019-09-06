@@ -1,50 +1,53 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.http import HttpResponse
+from django.core.paginator import Paginator
+from django.core.paginator import EmptyPage
+from django.core.paginator import PageNotAnInteger
 
 from products.models import Merchandise
 
 from main.views import product_info
 
-class InventoryListView(ListView):
-	"""
-	View of inventory for 
-	logged in user
-	"""
-	paginate_by = 25
-	
-	def get(self, request, inventory='full-inventory'):
-		context = {}
-		model = Merchandise.objects.filter(seller=request.user)
-		class_info = {
-			'title' : 'All',
-			'color' : '#fffff',
-		}
+def inventory_index(request, inventory='full-inventory'):
+	context = {}
+	model = Merchandise.objects.filter(seller=request.user)
+	page = request.GET.get('page', 1)
+	group_details = {
+		'title' : 'All',
+		'color' : '#099a8c',
+	}
 
-		if inventory != 'full-inventory':
+	def get_queryset(inventory):
+		if inventory == 'selling-inventory':
+			group_details['title'] = 'Selling'
+			group_details['color'] = '#0082d4'
+			context['is_selling'] = True
+			queryset = model.filter(on_floor__gte=1)
+		elif inventory == 'seller':
+			group_details['title'] = 'Seller'
+			group_details['color'] = '#1b3148'
+			queryset = model.filter(class_name='seller')
+		elif inventory == 'vender':
+			group_details['title'] = 'Vender'
+			group_details['color'] = '#faa652'
+			queryset = model.filter(class_name='vender')
+		else:
+			queryset = model
+		return queryset
 
-			if inventory == 'selling-inventory':
-				model = model.filter(on_floor__gte=1)
-				class_info = {
-					'title' : 'For Sale',
-					'color' : '#0082d4',
-				}
-				context['products_selling'] = True
+	queryset = get_queryset(inventory)
+	paginator = Paginator(queryset, 15)
 
-			if inventory == 'seller':
-				model = model.filter(class_name='seller')
-				class_info = {
-					'title' : 'Seller',
-					'color' : '#1b3148',
-				}
+	try:
+		products = paginator.page(page)
+	except PageNotAnInteger:
+		products = paginator.page(1)
+	except EmptyPage:
+		products = paginator.page(paginator.num_pages)
 
-			if inventory == 'vender':
-				model = model.filter(class_name='vender')
-				class_info = {
-					'title' : 'Vender',
-					'color' : '#faa652',
-				}
+	context['products'] = products
+	context['paginator'] = paginator
+	context['group_details'] = group_details
 
-		context['products'] = model
-		context['class_info'] = class_info
-		return render(request, 'inventory/index.html', context)
+	return render(request, 'inventory/index.html', context)

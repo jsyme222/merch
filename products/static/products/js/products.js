@@ -1,18 +1,22 @@
+$(window).on("load", function(){
+	var url = location.href;
+	var split_up = url.split("/");
+	var href = "/"+split_up[2]+"/"+split_up[3]"/";
+	var btn = document.getElementsByTagName("a[href='"+ href + "']");
+	console.log(href)
+	console.log("loaded");
+});
 
-function update_qty_val(pk, val){
-	var qty = $("#qty" + pk);
-	qty.value = val;
-	var btn = $("#qty-btn-" + pk);
-	btn.show();
-	console.log(qty.val());
-}
-
-function update_selling_val(pk, val){
-	var selling = $("#selling" + pk);
-	selling.value = val;
-	var btn = $("#selling-btn-" + pk);
-	btn.show();
-	console.log(selling.value);
+function update_object_val(pk, val, in_val, el){
+	var element = $("#"+el+pk);
+	var btn = $("#"+el+"-btn-" + pk);
+	element.value = val;
+	if(val == in_val){
+		btn.addClass('hidden-button');
+	}else{ 
+		btn.removeClass('hidden-button');
+	};
+	console.log(element.val());
 }
 
 function update_qty(pk){

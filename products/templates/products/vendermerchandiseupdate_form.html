@@ -1,0 +1,33 @@
+{% extends 'base/base-site.html' %}
+{% load static %}
+
+{% block body_class %}product_page{% endblock %}
+{% block styles %}
+   <link href="{% static 'main/assets/plugins/bootstrap-select2/select2.css' %}" rel="stylesheet" type="text/css" media="screen" />
+  <link href="{% static 'main/assets/plugins/ios-switch/ios7-switch.css' %}" rel="stylesheet" type="text/css" media="screen">
+   {% endblock %}
+{% block content %}
+      <!-- BEGIN PAGE CONTAINER-->
+      <div class="page-content">
+        <div class="content">
+          <div class="tiles blackS">
+            <div class="add-form">
+          <div class="page-title">
+            <h3>Edit Product</h3>
+          </div>
+          <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {{ form.errors }}
+            {{ forms.non_field_errors }}
+            <input type="submit" value="Save" class="btn btn-primary btn-cons">
+          </form>
+        </div>
+        </div>
+        </div>
+      </div>
+{% endblock %}
+{% block page_scripts %}
+    <script src="{% static 'main/assets/plugins/jquery-inputmask/jquery.inputmask.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'main/assets/js/form_elements.js' %}" type="text/javascript"></script>
+ {% endblock %}

@@ -54,13 +54,13 @@
                   </div>
                   <div class="widget-stats ">
                     <div class="wrapper last">
-                      <span class="item-title">Monthly</span> <span class="item-count animate-number semi-bold" data-value="1547" data-animation-duration="700">0</span>
+                      <span class="item-title">$ Invested</span> <span class="item-count animate-number semi-bold" data-value="{{ invested }}" data-animation-duration="700">0</span>
                     </div>
                   </div>
-                  <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
-                    <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="64.8%"></div>
+                  <div class="progress transparent progress-med no-radius m-t-20" style="width:90%">
+                    <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="{{ selling_average }}"></div>
                   </div>
-                  <div class="description"> <span class="text-white mini-description ">4% higher <span class="blend">than last month</span></span>
+                  <div class="description"> <span class="text-white mini-description ">{{ selling_average }}% Of Products<span class="blend"> For Sale</span></span>
                   </div>
                 </div>
               </div>
