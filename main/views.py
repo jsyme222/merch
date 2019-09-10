@@ -50,13 +50,13 @@ class MainIndex(View):
 		def ave_product_selling(floor, total):
 			dec = floor / total
 			ave = dec * 100
-			return ave
+			return round(ave)
 
 		inventory = get_inventory_info()
 		context['product_count'] = seller_stats.inventory_qty
 		context['on_floor_count'] = seller_stats.on_floor_qty
 		if inventory['product_count'] > 0:
-			context['selling_average'] = round(ave_product_selling(inventory['on_floor_count'], inventory['product_count']))
+			context['selling_average'] = ave_product_selling(seller_stats.on_floor_qty, seller_stats.inventory_qty)
 		context['invested'] = inventory['invested']
 		
 		return render(request, 'main/index.html', context)

@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 
 from products.models import Vender, VenderMerchandise
+
 class PdfReceipt:
 
 	def __init__(self, path, seller, vender):

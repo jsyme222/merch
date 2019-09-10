@@ -97,6 +97,7 @@ class Merchandise(models.Model):
 		null=True, 
 		blank=True, 
 		editable=False,
+		default=0,
 	)
 	
 	img = models.ImageField(
@@ -124,6 +125,19 @@ class Merchandise(models.Model):
 		return mark_safe('<img src="/media/%s" width="200" height="150" class="bordered" />' % (self.img))
 
 	image_tag.short_description = 'Image'
+
+	def record_sale(self, qty_sold, selling_price):
+		if self.QTY and self.QTY >= 1:
+			self.QTY -= qty_sold
+		else:
+			print('No QTY available')
+
+		if self.on_floor and self.on_floor >= 1:
+			self.on_floor -= qty_sold
+		else:
+			print('Selling qty not on floor')
+
+		self.profit += selling_price
 
 	def __str__(self):
 		if not self.title:
