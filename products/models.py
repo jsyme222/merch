@@ -54,9 +54,12 @@ class Merchandise(models.Model):
 	class Meta:
 		verbose_name_plural = 'Merchandise'
 
-	seller = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL)
-
-
+	seller = models.ForeignKey(
+		settings.AUTH_USER_MODEL, 
+		null=True, 
+		on_delete=models.SET_NULL,
+	)
+	
 	class_name = models.CharField(
 		max_length=250, 
 		null=True, 

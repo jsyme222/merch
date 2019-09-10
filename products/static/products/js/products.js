@@ -1,11 +1,3 @@
-$(window).on("load", function(){
-	var url = location.href;
-	var split_up = url.split("/");
-	var href = "/"+split_up[2]+"/"+split_up[3]"/";
-	var btn = document.getElementsByTagName("a[href='"+ href + "']");
-	console.log(href)
-	console.log("loaded");
-});
 
 function update_object_val(pk, val, in_val, el){
 	var element = $("#"+el+pk);

@@ -161,6 +161,9 @@
                 <li> 
                   <a href="{% url 'inventory.index' 'selling-inventory' %}"><i class="fa fa-truck"></i> Selling Inventory</a> 
                 </li>
+                <li> 
+                  <a href="{% url 'ordering.receipt_add' %}"><i class="fa fa-plus-circle"></i> Add Receipt</a>
+                </li>
               </ul>
             </li>
             <li>
@@ -169,11 +172,6 @@
                 <li> 
                   <a href="{% url 'products.add' %}"><i class="fa fa-plus-circle"></i> Add Product</a> 
                 </li>
-                <li> 
-                  <a href="{% url 'products.add' %}"><i class="fa fa-plus-circle"></i> Add Products</a></li>
-              </ul>
-                <li> 
-                  <a href="{% url 'ordering.receipt_add' %}"><i class="fa fa-plus-circle"></i> Add Receipts</a></li>
               </ul>
             </li>
           </ul>

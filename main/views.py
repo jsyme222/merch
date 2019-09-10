@@ -5,6 +5,7 @@ from django.views import View
 from django.contrib.auth.models import User
 
 from products.models import Merchandise
+from user.models import SellerStats
 
 def product_info(request):
 	"""
@@ -20,6 +21,8 @@ class MainIndex(View):
 	def get(self, request):
 		context = {}
 		products = product_info(request)
+		seller_stats = SellerStats.objects.get(seller=request.user)
+		seller_stats.update()
 
 		def get_inventory_info():
 			inv_info = {}
@@ -44,22 +47,14 @@ class MainIndex(View):
 
 			return inv_info
 
-		def get_on_floor_count():
-			on_floor = products.filter(on_floor__gte=1)
-			final_count = 0
-			for item in on_floor:
-				on_floor = item.on_floor
-				final_count += on_floor
-			return final_count
-
 		def ave_product_selling(floor, total):
 			dec = floor / total
 			ave = dec * 100
 			return ave
 
 		inventory = get_inventory_info()
-		context['product_count'] = inventory['product_count']
-		context['on_floor_count'] = inventory['on_floor_count']
+		context['product_count'] = seller_stats.inventory_qty
+		context['on_floor_count'] = seller_stats.on_floor_qty
 		if inventory['product_count'] > 0:
 			context['selling_average'] = round(ave_product_selling(inventory['on_floor_count'], inventory['product_count']))
 		context['invested'] = inventory['invested']

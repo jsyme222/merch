@@ -9,7 +9,7 @@ class VenderMerchandise:
 
 		self.title = ''
 
-class receipt:
+class PdfReceipt:
 
 	def __init__(self, path):
 		self.path = path
@@ -21,7 +21,6 @@ class receipt:
 			page = pdf.getPage(0)
 			self.text = page.extractText()	
 			self.listed_items = self.text.split('\n')
-			print('receipt {} added'.format(pdf))
 
 	def products(self):
 
@@ -73,5 +72,63 @@ class receipt:
 			prod.SKU = item[0]
 		print('Saved Products')
 
-receipt1 = receipt(first)
-receipt1.save()
+class EmlReceipt:
+
+	def __init__(self, path):
+		import eml_parser
+		self.path = path
+		self.prods = {}
+
+		with open(self.path, 'rb') as f:
+			raw_email = f.read()
+			raw_email = str(raw_email).replace('\\r', '')
+			raw_email = raw_email.split('\\n')
+			self.listed = raw_email
+
+	def get_order_date(self):
+		f = self.listed
+		for x in f:
+			if 'Order Date:' in x and '</' not in x:
+				x = x.split(' ')
+				order_date = x[2:4]
+				order_date = ' '.join(order_date)
+				print(order_date)
+				return order_date
+
+	def products(self):	
+
+		def rid_stragglers(objs):
+			straggle_free = []
+			for obj in objs:
+				if len(obj) >= 4:
+					straggle_free.append(obj)
+				else:
+					straggle_free[-1] += obj
+			return straggle_free
+
+		f = self.listed
+		for x in f:
+			if 'SKU: ' in x:
+				prods_start = f.index(x)+1
+			if 'Order Notes:' in x and '</' not in x:
+				prods_end = f.index(x)
+		prods = f[prods_start:prods_end]
+		for x in prods:
+			if x.startswith('*') or len(x) <= 5:
+				prods.remove(x)
+		skus = []
+		for prod in prods:
+			if len(prod) <= 6:
+				continue
+			else:
+				splits = prod.split(' ')
+				splits = rid_stragglers(splits)
+				print(splits)
+				if len(splits[0]) < 5:
+					pass
+				else:
+					skus.append(splits[0])
+		print(skus)
+
+e = EmlReceipt('foreside1.eml')
+e.products()

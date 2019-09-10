@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 
 from products.models import Vender, VenderMerchandise
-class Receipt:
+class PdfReceipt:
 
 	def __init__(self, path, seller, vender):
 		self.path = path
@@ -90,7 +90,7 @@ class VenderReceipt(models.Model):
 	to inventory
 	"""
 	class Meta:
-		verbose_name_plural='receipts'
+		verbose_name_plural='Receipts'
 
 	seller = models.ForeignKey(
 		settings.AUTH_USER_MODEL, 
@@ -142,5 +142,6 @@ class VenderReceipt(models.Model):
 	def save(self, *args, **kwargs):
 		super().save(*args, **kwargs)
 		receipt_url = 'media/{}'.format(self.receipt)
-		receipt = Receipt(receipt_url, self.seller, self.vender)
+		if receipt_url.endswith('pdf'):
+			receipt = PdfReceipt(receipt_url, self.seller, self.vender)
 		receipt.save()

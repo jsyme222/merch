@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomUserCreationForm, CustomUserChangeForm
-from .models import CustomUser
+from .models import CustomUser, SellerStats
 
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
@@ -14,3 +14,8 @@ class CustomUserAdmin(UserAdmin):
     list_display = ['email', 'username',]
 
 admin.site.register(CustomUser, CustomUserAdmin)
+
+class SellerStatsAdmin(admin.ModelAdmin):
+	pass
+
+admin.site.register(SellerStats, SellerStatsAdmin)

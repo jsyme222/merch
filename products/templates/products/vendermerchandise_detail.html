@@ -26,7 +26,7 @@ product_page
                     <div class="col-md-3 col-sm-2">
                       <p class="semi-bold">Inventory</p>
 
-                      <input id="qty{{ object.pk }}" type="number" value="{{ object.QTY }}" style="width:50px;" min="{{ object.on_floor }}" onchange="update_qty_val({{ object.pk }}, this.value)"></input>
+                      <input id="qty{{ object.pk }}" type="number" value="{{ object.QTY }}" style="width:50px;" min="{{ object.on_floor }}" onchange="update_object_val({{ object.pk }}, this.value)"></input>
 
                       <br>
                       <button id="update-inventory" class="btn btn-xs btn-mini btn-primary" type="button" value="{{ object.pk }}" onclick="update_qty(this.value)">UPDATE</button>
@@ -36,7 +36,7 @@ product_page
                     <div class="col-md-3 col-sm-2">
                       <p class="semi-bold">Selling</p>
 
-                      <input id="selling{{ object.pk }}" type="number" value="{{ object.on_floor }}" style="width:50px;" min="{{ object.on_floor }}" max="{{ object.QTY }}" onchange="update_selling_val({{ object.pk }}, this.value)">
+                      <input id="selling{{ object.pk }}" type="number" value="{{ object.on_floor }}" style="width:50px;" min="{{ object.on_floor }}" max="{{ object.QTY }}" onchange="update_object_val({{ object.pk }}, this.value)">
                     </input>
 
                       <br>
