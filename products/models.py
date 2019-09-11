@@ -127,17 +127,31 @@ class Merchandise(models.Model):
 	image_tag.short_description = 'Image'
 
 	def record_sale(self, qty_sold, selling_price):
+		errors = {}
+		context = {}
 		if self.QTY and self.QTY >= 1:
 			self.QTY -= qty_sold
+			context['QTY'] = self.QTY
 		else:
-			print('No QTY available')
+			errors['qty'] = 'Quantity unavailable for sale'
 
 		if self.on_floor and self.on_floor >= 1:
 			self.on_floor -= qty_sold
+			context['on_floor'] = self.on_floor
 		else:
-			print('Selling qty not on floor')
+			errors['on_floor'] = 'On floor quantity unavailable for sale'
 
-		self.profit += selling_price
+		if self.profit and self.on_floor >=1:
+			self.profit += selling_price
+			context['profit'] = self.profit
+		if errors:
+			for error in errors.keys():
+				print('{}: {}'.format(error, errors[error]))
+			return errors
+		else:
+			for i in context.keys():
+				print('{}: {}'.format(i, context[i]))
+			return context
 
 	def __str__(self):
 		if not self.title:
@@ -194,10 +208,6 @@ class VenderMerchandise(Merchandise):
 
 				img = soup.find('img', id=re.compile(r'^Product'))
 
-				def get_title(img):
-					title = img['alt']
-					return title
-
 				def get_image(img):
 					local_url = img['src']
 					file_name = local_url.split('/')[-1]
@@ -218,40 +228,39 @@ class VenderMerchandise(Merchandise):
 					except URLError:
 						print('Error in {}'.format(__name__))
 
-					product_info['title'] = get_title(img)
+					product_info['title'] = img['alt']
 					product_info['image'] = get_image(img)
 			
 			except:
 				product_info['title'] = 'None'
 				product_info['image'] = 'None'
+				product_info['errors'] = 'Product Unavailable'
 
 		return product_info
 
 	def check_SKU(self):
 		try:
 			product = Merchandise.objects.get(SKU=self.SKU)
-			return True
+			return product
 		except Merchandise.DoesNotExist:
 			return False
 
 	def save(self, *args, **kwargs):
+		in_inventory = self.check_SKU()
+		if in_inventory:
+			if in_inventory.seller == self.seller:
+				in_inventory.QTY += self.QTY
+				in_inventory.on_floor += self.on_floor
+				in_inventory.save()
+				return
 		if self.online_info:
-			if self.check_SKU():
-				product = Merchandise.objects.get(SKU=self.SKU)
-				self.title = product.title
-				if product.resale:
-					self.resale = product.resale
-				else:
-					self.resale = self.wholesale * 2
-				self.resale = product.wholesale
-				self.profit = product.profit
-				self.img = product.img
-			else:
 				info = self.get_product_info()
-				if self.online_info:
-					self.img = info['image']
-					self.title = info['title']
-			self.online_info = False
+				self.img = info['image']
+				self.title = info['title']
+				if 'errors' in info.keys():
+					print('Unable to get online info: {}'.format(info['errors']))
+		self.online_info = False
 		self.class_name = 'vender'
-		self.resale = self.wholesale * 2
+		if not self.resale:
+			self.resale = self.wholesale * 2
 		super(Merchandise, self).save(*args, **kwargs)
